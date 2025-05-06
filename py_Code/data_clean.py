@@ -7,7 +7,7 @@ import pickle
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
-my_nltk_path="C:\\Users\\DominicMin\\AppData\\Roaming"
+my_nltk_path="Data"
 nltk.data.path.append(my_nltk_path)
 
 # Data loading and pre-processing 
