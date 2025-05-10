@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "markitdown": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "markitdown-mcp:latest"
+      ]
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "."]
+    },
+    "sequentialThinking": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+    }
+  }
+} 
