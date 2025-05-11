@@ -189,7 +189,7 @@ class Data_to_Clean:
 # In[ ]:
 
 
-class Data_to_Analysis(Data_to_Clean):
+class Data_to_Analyze(Data_to_Clean):
     def __init__(self,type,source=raw_data):
         # First construct an object of father class
         super().__init__(source)
