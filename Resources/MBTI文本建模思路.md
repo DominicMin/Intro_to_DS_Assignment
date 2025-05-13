@@ -5,20 +5,27 @@ source: "[[MBTI人格分析研究方案 ]]"
 
 # MBTI文本建模思路
 
-## -  操作顺序
-- remove_url
-- 特征采集
-    - word_count
-    - sentence_quantity
-    - upper_ratio
-    - readability
-- expand_contraction
-- tolower
-- remove_punct
-- remove_whitespace
-- totokens
-- remove_stopwords
-- post_lemmatize
+## 第一阶段：数据清洗&文本基本特征采集
+- -  操作顺序
+    - remove_url
+    - 先采集一些基本特征，再继续清洗
+        - word_count帖子词数
+        - sentence_quantity帖子句子数
+        - upper_ratio帖子大写字母比率
+        - readability可读性：用两个参数衡量
+            - Flesch Reading Ease
+            - Gunning Fog Index
+        - 如果全部清洗完再采集这些数据就没有意义了，比如tokenize之后的文本就没有可读性
+    - expand_contraction
+        - 展开诸如you're之类的连接词
+    - tolower
+    - remove_punct
+    - remove_whitespace
+    - totokens
+        - 文本token化
+    - remove_stopwords
+    - post_lemmatize
+        - 词形还原，例如将running变成run
 
 ## * **特征工程（用于后续分析/建模）：**
 -
