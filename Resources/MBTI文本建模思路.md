@@ -6,26 +6,26 @@ source: "[[MBTI人格分析研究方案 ]]"
 # MBTI文本建模思路
 
 ## 第一阶段：数据清洗&文本基本特征采集
-- -  操作顺序
-    - remove_url
-    - 先采集一些基本特征，再继续清洗
-        - word_count帖子词数
-        - sentence_quantity帖子句子数
-        - upper_ratio帖子大写字母比率
-        - readability可读性：用两个参数衡量
-            - Flesch Reading Ease
-            - Gunning Fog Index
-        - 如果全部清洗完再采集这些数据就没有意义了，比如tokenize之后的文本就没有可读性
-    - expand_contraction
-        - 展开诸如you're之类的连接词
-    - tolower
-    - remove_punct
-    - remove_whitespace
-    - totokens
-        - 文本token化
-    - remove_stopwords
-    - post_lemmatize
-        - 词形还原，例如将running变成run
+- 操作顺序（数据处理管道）
+- remove_url
+- 先采集一些基本特征，再继续清洗
+    - word_count帖子词数
+    - sentence_quantity帖子句子数
+    - upper_ratio帖子大写字母比率
+    - readability可读性：用两个参数衡量
+        - Flesch Reading Ease
+        - Gunning Fog Index
+    - 如果全部清洗完再采集这些数据就没有意义了，比如tokenize之后的文本就没有可读性
+- expand_contraction
+    - 展开诸如you're之类的连接词
+- tolower
+- remove_punct
+- remove_whitespace
+- totokens
+    - 文本token化
+- remove_stopwords
+- post_lemmatize
+    - 词形还原，例如将running变成run
 
 ## * **特征工程（用于后续分析/建模）：**
 -
@@ -39,3 +39,8 @@ source: "[[MBTI人格分析研究方案 ]]"
     - **语言学特征（LIWC）：** 使用Linguistic Inquiry and Word Count (LIWC) 15 或类似词典，分析文本在心理、情感、认知过程等维度上的特征。
 -
     - **情感/情绪特征：** 使用情感词典（如SenticNet, NRC Emotion Lexicon 15）或情感分析模型，量化文本的情感极性或具体情绪。
+
+## 第二阶段：主题建模
+- 1. 根据所有帖子创建词典
+    - 使用gensim模型构建
+- 2. 采取词袋模型（BoW）的方法，将文本表述为语料库（corpus）
