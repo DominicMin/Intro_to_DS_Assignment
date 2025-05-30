@@ -168,7 +168,7 @@ Topic 13:
   da: 0.0104
   virgo: 0.0095
 
-Topic 14:
+Topic 14:（原神）
   wordle: 0.0290
   genshin: 0.0284
   kazuha: 0.0155

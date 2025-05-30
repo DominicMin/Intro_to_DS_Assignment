@@ -1,0 +1,157 @@
+Topic-Word Distribution (Structured):
+Topic 0:
+  bitch: 0.0039
+  car: 0.0032
+  dog: 0.0032
+  summer: 0.0030
+  tonight: 0.0027
+  season: 0.0027
+  dad: 0.0025
+  room: 0.0025
+  walk: 0.0025
+  sick: 0.0024
+
+Topic 1:
+  bts: 0.0131
+  concert: 0.0084
+  vote: 0.0076
+  txt: 0.0076
+  comeback: 0.0060
+  kpop: 0.0059
+  army: 0.0057
+  jungkook: 0.0055
+  jimin: 0.0055
+  member: 0.0054
+
+Topic 2:
+  moot: 0.0108
+  acc: 0.0082
+  goodnight: 0.0071
+  yall: 0.0070
+  bestie: 0.0064
+  skz: 0.0062
+  j: 0.0058
+  gm: 0.0057
+  twt: 0.0053
+  chan: 0.0049
+
+Topic 3:
+  playful: 0.0366
+  expression: 0.0361
+  svt: 0.0206
+  enhypen: 0.0206
+  sector: 0.0178
+  seventeen: 0.0151
+  sunoo: 0.0151
+  track: 0.0147
+  list: 0.0143
+  cheer: 0.0121
+
+Topic 4:
+  ko: 0.0422
+  sa: 0.0367
+  ako: 0.0280
+  ng: 0.0256
+  ang: 0.0233
+  lang: 0.0186
+  ka: 0.0153
+  po: 0.0151
+  mo: 0.0150
+  pa: 0.0134
+
+Topic 5:
+  stream: 0.0106
+  haha: 0.0081
+  amazing: 0.0049
+  draw: 0.0048
+  smile: 0.0047
+  hahaha: 0.0047
+  welcome: 0.0047
+  amaze: 0.0043
+  lovely: 0.0042
+  ah: 0.0042
+
+Topic 6:
+  automatically: 0.0437
+  unfollowed: 0.0268
+  aku: 0.0223
+  ya: 0.0120
+  ada: 0.0106
+  yang: 0.0103
+  ini: 0.0098
+  mau: 0.0093
+  di: 0.0093
+  yg: 0.0089
+
+Topic 7:
+  food: 0.0078
+  express: 0.0060
+  address: 0.0059
+  informal: 0.0059
+  disbelief: 0.0059
+  drink: 0.0058
+  fast: 0.0050
+  body: 0.0048
+  water: 0.0047
+  weight: 0.0044
+
+Topic 8:
+  season: 0.0059
+  scene: 0.0053
+  eddie: 0.0050
+  episode: 0.0050
+  ship: 0.0037
+  lesbian: 0.0035
+  steve: 0.0034
+  stranger: 0.0033
+  mike: 0.0032
+  chapter: 0.0031
+
+Topic 9:
+  via: 0.0041
+  state: 0.0027
+  country: 0.0023
+  human: 0.0023
+  experience: 0.0022
+  vote: 0.0021
+  matter: 0.0020
+  news: 0.0018
+  base: 0.0018
+  american: 0.0018
+
+Topic 10:
+  moon: 0.0150
+  unnie: 0.0117
+  sun: 0.0090
+  aries: 0.0078
+  leo: 0.0077
+  rise: 0.0068
+  sign: 0.0068
+  stream: 0.0051
+  scorpio: 0.0050
+  gemini: 0.0048
+
+Topic 11:
+  de: 0.0130
+  genshin: 0.0120
+  wordle: 0.0107
+  que: 0.0099
+  la: 0.0088
+  draw: 0.0073
+  pull: 0.0066
+  kazuha: 0.0066
+  en: 0.0056
+  mi: 0.0053
+
+Topic 12:
+  nct: 0.0330
+  rt: 0.0294
+  ateez: 0.0294
+  mark: 0.0204
+  pc: 0.0179
+  san: 0.0153
+  sell: 0.0152
+  jaehyun: 0.0141
+  kpop: 0.0132
+  moot: 0.0125
+
