@@ -1,0 +1,438 @@
+Topic-Word Distribution (Structured):
+## Topic 0: 噪音主题（随机表达和填充词）
+Topic 0:
+  id: 0.0034
+  holy: 0.0030
+  tiktok: 0.0030
+  silly: 0.0027
+  anyways: 0.0026
+  bestie: 0.0025
+  forever: 0.0023
+  ik: 0.0022
+  suppose: 0.0022
+  fav: 0.0022
+  comment: 0.0021
+  expression: 0.0021
+  idc: 0.0021
+  taste: 0.0021
+  scream: 0.0021
+  playful: 0.0020
+  steal: 0.0020
+  explain: 0.0020
+  swear: 0.0020
+  rly: 0.0019
+
+## Topic 1: 日常生活主题
+Topic 1:
+  walk: 0.0041
+  sit: 0.0035
+  room: 0.0032
+  drive: 0.0032
+  bed: 0.0025
+  water: 0.0025
+  covid: 0.0025
+  outside: 0.0022
+  ticket: 0.0022
+  pick: 0.0022
+  shirt: 0.0021
+  weekend: 0.0021
+  dress: 0.0021
+  line: 0.0021
+  coffee: 0.0021
+  photo: 0.0021
+  city: 0.0020
+  spend: 0.0020
+  sign: 0.0020
+  catch: 0.0020
+
+## Topic 2: 社交媒体互动主题
+Topic 2:
+  moot: 0.0307
+  gm: 0.0171
+  bestie: 0.0150
+  hii: 0.0145
+  ateez: 0.0125
+  rt: 0.0111
+  hiii: 0.0098
+  gn: 0.0092
+  youu: 0.0087
+  forever: 0.0083
+  youuu: 0.0077
+  yesss: 0.0075
+  aww: 0.0072
+  san: 0.0064
+  hru: 0.0062
+  ilysm: 0.0062
+  luck: 0.0061
+  follower: 0.0060
+  amaze: 0.0058
+  omggg: 0.0057
+
+## Topic 3: 动漫和艺术创作主题
+Topic 3:
+  draw: 0.0230
+  anime: 0.0108
+  chapter: 0.0088
+  xd: 0.0078
+  fic: 0.0070
+  design: 0.0063
+  series: 0.0060
+  color: 0.0055
+  manga: 0.0052
+  artist: 0.0051
+  style: 0.0049
+  lrt: 0.0046
+  episode: 0.0045
+  drawing: 0.0041
+  version: 0.0040
+  voice: 0.0039
+  piece: 0.0039
+  au: 0.0036
+  oc: 0.0036
+  scene: 0.0035
+
+## Topic 4: 政治和社会议题主题
+Topic 4:
+  state: 0.0044
+  country: 0.0038
+  vote: 0.0035
+  human: 0.0033
+  american: 0.0030
+  law: 0.0030
+  base: 0.0028
+  matter: 0.0028
+  trump: 0.0027
+  issue: 0.0027
+  news: 0.0025
+  truth: 0.0023
+  gun: 0.0023
+  case: 0.0023
+  power: 0.0023
+  experience: 0.0023
+  consider: 0.0022
+  government: 0.0022
+  party: 0.0022
+  america: 0.0021
+
+## Topic 5: Stray Kids和ENHYPEN主题
+Topic 5:
+  vote: 0.0318
+  skz: 0.0299
+  chan: 0.0270
+  enhypen: 0.0213
+  hyunjin: 0.0172
+  felix: 0.0156
+  sunoo: 0.0150
+  lee: 0.0110
+  stray: 0.0108
+  concert: 0.0104
+  future: 0.0097
+  jay: 0.0096
+  jake: 0.0095
+  jungwon: 0.0086
+  han: 0.0084
+  changbin: 0.0084
+  heeseung: 0.0082
+  sunghoon: 0.0081
+  seungmin: 0.0075
+  jisung: 0.0070
+
+## Topic 6: 噪音主题（多语言混合）
+Topic 6:
+  taylor: 0.0226
+  harry: 0.0177
+  swift: 0.0105
+  bae: 0.0096
+  noona: 0.0094
+  aku: 0.0091
+  thankyou: 0.0085
+  hyung: 0.0078
+  louis: 0.0071
+  mau: 0.0070
+  bb: 0.0068
+  la: 0.0057
+  bgt: 0.0056
+  bestie: 0.0055
+  yu: 0.0050
+  tu: 0.0050
+  banget: 0.0049
+  apa: 0.0047
+  nak: 0.0047
+  dia: 0.0046
+
+## Topic 7: 饮食失调相关主题
+Topic 7:
+  weight: 0.0111
+  fast: 0.0094
+  fat: 0.0081
+  water: 0.0080
+  cream: 0.0080
+  milk: 0.0072
+  ice: 0.0071
+  taste: 0.0066
+  skinny: 0.0060
+  ed: 0.0060
+  meal: 0.0056
+  chocolate: 0.0054
+  rice: 0.0054
+  dinner: 0.0051
+  cals: 0.0051
+  chicken: 0.0051
+  archive: 0.0051
+  binge: 0.0051
+  cake: 0.0048
+  edtwt: 0.0048
+
+## Topic 8: K-pop一般主题
+Topic 8:
+  automatically: 0.0313
+  kpop: 0.0187
+  group: 0.0174
+  stalker: 0.0146
+  devote: 0.0118
+  comeback: 0.0108
+  debut: 0.0097
+  loona: 0.0094
+  idol: 0.0077
+  dance: 0.0077
+  bias: 0.0068
+  mv: 0.0065
+  exo: 0.0065
+  fandom: 0.0063
+  release: 0.0062
+  nayeon: 0.0060
+  concert: 0.0053
+  solo: 0.0051
+  sing: 0.0051
+  cb: 0.0051
+
+## Topic 9: 《怪奇物语》相关主题
+Topic 9:
+  eddie: 0.0159
+  scene: 0.0156
+  episode: 0.0155
+  mike: 0.0115
+  steve: 0.0111
+  stranger: 0.0086
+  strange: 0.0076
+  robin: 0.0073
+  max: 0.0070
+  film: 0.0064
+  el: 0.0061
+  star: 0.0059
+  ep: 0.0056
+  series: 0.0054
+  spoiler: 0.0053
+  edit: 0.0053
+  nancy: 0.0051
+  vecna: 0.0044
+  actor: 0.0043
+  death: 0.0040
+
+## Topic 10: BTS相关主题
+Topic 10:
+  bts: 0.0538
+  army: 0.0237
+  jungkook: 0.0215
+  yoongi: 0.0197
+  jimin: 0.0194
+  hobi: 0.0191
+  taehyung: 0.0167
+  tae: 0.0117
+  jin: 0.0109
+  hoseok: 0.0109
+  namjoon: 0.0102
+  tattoo: 0.0063
+  box: 0.0061
+  seokjin: 0.0057
+  kim: 0.0057
+  joon: 0.0052
+  mv: 0.0052
+  jhope: 0.0051
+  party: 0.0051
+  stream: 0.0049
+
+## Topic 11: TXT相关主题
+Topic 11:
+  txt: 0.0522
+  smile: 0.0257
+  beomgyu: 0.0237
+  soobin: 0.0195
+  yeonjun: 0.0189
+  moa: 0.0156
+  comment: 0.0127
+  taehyun: 0.0121
+  weverse: 0.0091
+  hug: 0.0090
+  concert: 0.0081
+  lip: 0.0063
+  blush: 0.0062
+  woof: 0.0059
+  kai: 0.0055
+  arm: 0.0053
+  adorable: 0.0050
+  precious: 0.0045
+  tour: 0.0045
+  cutie: 0.0043
+
+## Topic 12: 积极情感和商业主题
+Topic 12:
+  congratulation: 0.0105
+  amazing: 0.0089
+  wonderful: 0.0064
+  amaze: 0.0063
+  weekend: 0.0059
+  team: 0.0058
+  create: 0.0055
+  appreciate: 0.0049
+  forward: 0.0044
+  project: 0.0043
+  excite: 0.0043
+  community: 0.0042
+  receive: 0.0042
+  focus: 0.0042
+  student: 0.0041
+  business: 0.0039
+  build: 0.0039
+  dear: 0.0037
+  experience: 0.0036
+  space: 0.0036
+
+## Topic 13: 学习和心理健康主题
+Topic 13:
+  study: 0.0074
+  exam: 0.0057
+  test: 0.0052
+  personality: 0.0048
+  self: 0.0046
+  felt: 0.0045
+  relationship: 0.0043
+  pain: 0.0042
+  class: 0.0040
+  mood: 0.0038
+  past: 0.0037
+  language: 0.0036
+  mbti: 0.0036
+  introvert: 0.0035
+  energy: 0.0035
+  answer: 0.0034
+  fall: 0.0034
+  easy: 0.0034
+  stress: 0.0032
+  spend: 0.0031
+
+## Topic 14: 游戏主题（原神和Wordle）
+Topic 14:
+  wordle: 0.0432
+  genshin: 0.0354
+  pull: 0.0184
+  kazuha: 0.0183
+  xiao: 0.0123
+  diluc: 0.0119
+  childe: 0.0109
+  banner: 0.0095
+  event: 0.0089
+  heizou: 0.0088
+  main: 0.0084
+  zhongli: 0.0079
+  itto: 0.0074
+  venti: 0.0072
+  build: 0.0071
+  enstars: 0.0069
+  star: 0.0068
+  quest: 0.0066
+  save: 0.0064
+  card: 0.0061
+
+## Topic 15: 噪音主题（混合内容）
+Topic 15:
+  photo: 0.1706
+  sector: 0.0899
+  list: 0.0812
+  track: 0.0765
+  cheer: 0.0436
+  episode: 0.0351
+  leader: 0.0276
+  podcast: 0.0249
+  solution: 0.0201
+  smash: 0.0143
+  svt: 0.0125
+  narcissist: 0.0116
+  highlight: 0.0114
+  john: 0.0113
+  recommend: 0.0110
+  georgia: 0.0108
+  mint: 0.0106
+  recent: 0.0105
+  concept: 0.0102
+  california: 0.0093
+
+## Topic 16: K-pop商品交易主题
+Topic 16:
+  kst: 0.0147
+  unnie: 0.0120
+  private: 0.0119
+  update: 0.0109
+  photo: 0.0090
+  order: 0.0089
+  concert: 0.0083
+  sell: 0.0079
+  pm: 0.0078
+  comeback: 0.0075
+  pc: 0.0068
+  drama: 0.0067
+  shopee: 0.0052
+  winner: 0.0051
+  pre: 0.0050
+  cover: 0.0048
+  korean: 0.0048
+  oppa: 0.0047
+  lee: 0.0047
+  stage: 0.0045
+
+## Topic 17: 在线内容创作和占星主题
+Topic 17:
+  stream: 0.0671
+  moon: 0.0138
+  twitch: 0.0096
+  aries: 0.0095
+  leo: 0.0090
+  sun: 0.0074
+  sign: 0.0068
+  chat: 0.0054
+  youtube: 0.0054
+  rise: 0.0050
+  scorpio: 0.0050
+  cancer: 0.0048
+  discord: 0.0047
+  gemini: 0.0047
+  commission: 0.0046
+  team: 0.0046
+  vtuber: 0.0045
+  ranboo: 0.0045
+  follower: 0.0044
+  tommy: 0.0044
+
+## Topic 18: SEVENTEEN和NCT主题
+Topic 18:
+  svt: 0.0154
+  seventeen: 0.0140
+  mark: 0.0103
+  hoshi: 0.0103
+  wonwoo: 0.0102
+  mingyu: 0.0100
+  carat: 0.0079
+  jeonghan: 0.0078
+  nct: 0.0072
+  jaehyun: 0.0070
+  vernon: 0.0068
+  joshua: 0.0067
+  jun: 0.0066
+  concert: 0.0054
+  pc: 0.0053
+  line: 0.0052
+  seungkwan: 0.0051
+  dino: 0.0050
+  sana: 0.0048
+  ate: 0.0048
+

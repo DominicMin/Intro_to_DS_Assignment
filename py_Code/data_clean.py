@@ -37,11 +37,9 @@ import copy
 
 # Language detection 
 import fasttext
-lang_model=fasttext.load_model("lid.176.bin")
 
 # Use local LLM to for translation
 import ollama
-llm="llama3.1:8b"
 
 from tqdm.auto import tqdm
 tqdm.pandas()
@@ -58,32 +56,39 @@ MBTI_types = [
     'estj', 'esfj', 'enfj', 'entj'
     ]
 
-# Data loading and spliting 
-raw_data=pd.read_csv("Data\\twitter_MBTI.csv",encoding='utf-8')
-raw_data.drop(columns="Unnamed: 0",inplace=True)
-raw_data.columns=["posts","type"]
-# for i in raw_data.index:
-#     temp=raw_data.loc[i,"text"]
-#     temp=temp.split("|||")
-#     raw_data.loc[i,"text"]=temp
+if __name__ == "__main__":
+    # Language detection model loading
+    lang_model=fasttext.load_model("lid.176.bin")
+    
+    # LLM configuration
+    llm="llama3.1:8b"
 
-# %%
-from custom_stopwords import custom_stopwords
-stop_words.update(custom_stopwords)
-stop_words
+    # Data loading and spliting 
+    raw_data=pd.read_csv("Data\\twitter_MBTI.csv",encoding='utf-8')
+    raw_data.drop(columns="Unnamed: 0",inplace=True)
+    raw_data.columns=["posts","type"]
+    # for i in raw_data.index:
+    #     temp=raw_data.loc[i,"text"]
+    #     temp=temp.split("|||")
+    #     raw_data.loc[i,"text"]=temp
 
-# %%
-raw_data.head(20)
+    # %%
+    from custom_stopwords import custom_stopwords
+    stop_words.update(custom_stopwords)
+    stop_words
 
-# %%
-raw_data["type"].value_counts()
+    # %%
+    raw_data.head(20)
 
-# %% [markdown]
-# #### Sentence splitting
+    # %%
+    raw_data["type"].value_counts()
 
-# %%
-for i in raw_data.index:
-    raw_data.loc[i,"posts"]=raw_data.loc[i,"posts"].split("|||")
+    # %% [markdown]
+    # #### Sentence splitting
+
+    # %%
+    for i in raw_data.index:
+        raw_data.loc[i,"posts"]=raw_data.loc[i,"posts"].split("|||")
 
 # %% [markdown]
 # ### Create a class to clean data
@@ -94,9 +99,12 @@ class Data_to_Clean:
     # Load the contraction map in class
     with open(file="contractions.json",mode='r',encoding='utf-8') as f:
         contractions_map=json.load(f)
-    def __init__(self,source=raw_data):
+    def __init__(self,source=None):
         #self.data should be ALL THE POSTS, type:pd.Series
-        self.data=source
+        if source is None and __name__ == "__main__":
+            self.data=raw_data
+        else:
+            self.data=source
     
     # Remove "@Mention" and "#Tag"
     def remove_mention_and_tag(self):
@@ -322,7 +330,7 @@ class Data_to_Clean:
 
 # %%
 class Data_to_Analyze(Data_to_Clean):
-    def __init__(self,type,source=raw_data):
+    def __init__(self,type,source=None):
         # First initialize an object of father class(Data_to_Clean)
         super().__init__(source)
         # self.data is of type pd.DataFrame, now specific the MBTI type
@@ -507,35 +515,9 @@ def analyze_data_p1(TYPE):
     with open(f"Data\\cleaned_data\\{TYPE}_cleaned.pkl","wb") as f:
         pickle.dump(data,f)
 
-# Analyze posts from all MBTI types
-
-for T in tqdm(MBTI_types):
-    analyze_data_p1(T)
-
-# %%
-data_archieve={TYPE:None for TYPE in MBTI_types}
-for TYPE in MBTI_types:
-    with open(f"Data\\cleaned_data\\{TYPE}_cleaned.pkl","rb") as f:
-        data_archieve[TYPE]=pickle.load(f)
-all_posts=[]
 def post_concatenate(post_flatten):
     all_posts.append(post_flatten)
-for type_data in data_archieve.values():
-    type_data.data["posts"].apply(post_concatenate)
-with open("Data/all_posts.json",'w') as f:
-    json.dump(all_posts,f)
 
-# %% [markdown]
-# #### Train N-gram phraser model
-
-# %%
-bigarm_model=Phrases(all_posts,min_count=5,threshold=100)
-bigram_phraser=Phraser(bigarm_model)
-
-# %%
-bigarm_model.export_phrases()
-
-# %%
 def analyze_data_p2(TYPE):
     data=data_archieve[TYPE]
     data.apply_ngram(bigram_phraser)
@@ -546,37 +528,64 @@ def analyze_data_p2(TYPE):
     with open(f"Data\\cleaned_data\\{TYPE}_cleaned.pkl","wb") as f:
         pickle.dump(data,f)
 
-for T in tqdm(MBTI_types):
-    analyze_data_p2(T)
+if __name__ == "__main__":
+    # Analyze posts from all MBTI types
+    for T in tqdm(MBTI_types):
+        analyze_data_p1(T)
 
-# %%
-with open(f"Data\\cleaned_data\\infp_cleaned.pkl","rb") as f:
-    infp=pickle.load(f)
+    # %%
+    data_archieve={TYPE:None for TYPE in MBTI_types}
+    for TYPE in MBTI_types:
+        with open(f"Data\\cleaned_data\\{TYPE}_cleaned.pkl","rb") as f:
+            data_archieve[TYPE]=pickle.load(f)
+    all_posts=[]
+    for type_data in data_archieve.values():
+        type_data.data["posts"].apply(post_concatenate)
+    with open("Data/all_posts.json",'w') as f:
+        json.dump(all_posts,f)
 
-# %%
-infp.data.to_csv("Data/infp_data.csv")
+    # %% [markdown]
+    # #### Train N-gram phraser model
 
-# %% [markdown]
-# #### Demonstration of each step
+    # %%
+    bigarm_model=Phrases(all_posts,min_count=5,threshold=100)
+    bigram_phraser=Phraser(bigarm_model)
 
-# %%
-import matplotlib.pyplot as plt
-result={}
-for i in np.concatenate((np.array([0.0]),np.arange(0.5,0.96,0.05))):
-    result[f"{i:.2f}"]=0
-    isfj=Data_to_Analyze('infp')
-    isfj.remove_mention_and_tag()
-    isfj.remove_emoji()
-    isfj.remove_url()
-    isfj.remove_whitespace()
-    isfj.drop_non_english(i)
-    for j in isfj.data.index:
-        result[f"{i:.2f}"]+=len(isfj.data.loc[j,"posts"])
-result=pd.Series(result)
-plt.plot(result.index,result.values,label="Remaining Sentence Quantity")
-plt.xlabel("Filter Level")
-plt.ylabel("Sentence Quantity")
-plt.legend()
-plt.show()
+    # %%
+    bigarm_model.export_phrases()
+
+    # %%
+    for T in tqdm(MBTI_types):
+        analyze_data_p2(T)
+
+    # %%
+    with open(f"Data\\cleaned_data\\infp_cleaned.pkl","rb") as f:
+        infp=pickle.load(f)
+
+    # %%
+    infp.data.to_csv("Data/infp_data.csv")
+
+    # %% [markdown]
+    # #### Demonstration of each step
+
+    # %%
+    import matplotlib.pyplot as plt
+    result={}
+    for i in np.concatenate((np.array([0.0]),np.arange(0.5,0.96,0.05))):
+        result[f"{i:.2f}"]=0
+        isfj=Data_to_Analyze('infp')
+        isfj.remove_mention_and_tag()
+        isfj.remove_emoji()
+        isfj.remove_url()
+        isfj.remove_whitespace()
+        isfj.drop_non_english(i)
+        for j in isfj.data.index:
+            result[f"{i:.2f}"]+=len(isfj.data.loc[j,"posts"])
+    result=pd.Series(result)
+    plt.plot(result.index,result.values,label="Remaining Sentence Quantity")
+    plt.xlabel("Filter Level")
+    plt.ylabel("Sentence Quantity")
+    plt.legend()
+    plt.show()
 
 
