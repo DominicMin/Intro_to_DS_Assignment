@@ -37,9 +37,7 @@ import copy
 
 # Language detection 
 import fasttext
-
-# Use local LLM to for translation
-import ollama
+lang_model=fasttext.load_model("lid.176.bin")
 
 from tqdm.auto import tqdm
 tqdm.pandas()
@@ -56,40 +54,6 @@ MBTI_types = [
     'estj', 'esfj', 'enfj', 'entj'
     ]
 
-if __name__ == "__main__":
-    # Language detection model loading
-    lang_model=fasttext.load_model("lid.176.bin")
-    
-    # LLM configuration
-    llm="llama3.1:8b"
-
-    # Data loading and spliting 
-    raw_data=pd.read_csv("Data\\twitter_MBTI.csv",encoding='utf-8')
-    raw_data.drop(columns="Unnamed: 0",inplace=True)
-    raw_data.columns=["posts","type"]
-    # for i in raw_data.index:
-    #     temp=raw_data.loc[i,"text"]
-    #     temp=temp.split("|||")
-    #     raw_data.loc[i,"text"]=temp
-
-    # %%
-    from custom_stopwords import custom_stopwords
-    stop_words.update(custom_stopwords)
-    stop_words
-
-    # %%
-    raw_data.head(20)
-
-    # %%
-    raw_data["type"].value_counts()
-
-    # %% [markdown]
-    # #### Sentence splitting
-
-    # %%
-    for i in raw_data.index:
-        raw_data.loc[i,"posts"]=raw_data.loc[i,"posts"].split("|||")
-
 # %% [markdown]
 # ### Create a class to clean data
 
@@ -99,12 +63,9 @@ class Data_to_Clean:
     # Load the contraction map in class
     with open(file="contractions.json",mode='r',encoding='utf-8') as f:
         contractions_map=json.load(f)
-    def __init__(self,source=None):
+    def __init__(self,source):
         #self.data should be ALL THE POSTS, type:pd.Series
-        if source is None and __name__ == "__main__":
-            self.data=raw_data
-        else:
-            self.data=source
+        self.data=source
     
     # Remove "@Mention" and "#Tag"
     def remove_mention_and_tag(self):
@@ -249,8 +210,8 @@ class Data_to_Clean:
             post_totokens=[]
             for sentence in post:
                 tokens=word_tokenize(sentence)
-                post_totokens.extend(tokens)
-                post_totokens.extend(['@SENTENCE-END'])
+                post_totokens.append(tokens)
+                # post_totokens.extend(['@SENTENCE-END'])
             return post_totokens
         # here all posts are flatten
         self.data["posts"]=self.data["posts"].apply(process_totokens)
@@ -274,18 +235,21 @@ class Data_to_Clean:
                 post_rebuild.append(new_sentence)
             return post_rebuild
         self.data["posts"]=self.data["posts"].apply(process_apply_ngram)
-
-            
+       
     # Remove stopwords in tokenized text
     def remove_stopwords(self):
         def process_remove_stopwords(post):
             filtered_post=[]
             for sentence in post:
-                filtered_sentence=[]
-                for word in sentence:
-                    if word not in stop_words:
-                        filtered_sentence.append(word)
-                filtered_post.append(filtered_sentence)
+                if isinstance(sentence,list):
+                    filtered_sentence=[]
+                    for word in sentence:
+                        if word not in stop_words:
+                            filtered_sentence.append(word)
+                    filtered_post.append(filtered_sentence)
+                else:
+                    if sentence not in stop_words:
+                        filtered_post.append(sentence)
             return filtered_post
         self.data["posts"]=self.data["posts"].apply(process_remove_stopwords)
 
@@ -317,11 +281,14 @@ class Data_to_Clean:
             return lemmatized_post
         self.data["posts"]=self.data["posts"].apply(process_lemmatize)
 
-    def drop_empty(self):
-        def process_drop(post):
-            result=[sentence for sentence in post if sentence!=[]]
-            return result        
-        self.data["posts"]=self.data["posts"].apply(process_drop)
+    def concatenate_post(self):
+        def process_concatenate_post(post):
+            complete_post=[]
+            for sentence in post:
+                if sentence:
+                    complete_post.extend(sentence)
+            return complete_post
+        self.data["posts"]=self.data["posts"].apply(process_concatenate_post)
         
     
 
@@ -330,7 +297,7 @@ class Data_to_Clean:
 
 # %%
 class Data_to_Analyze(Data_to_Clean):
-    def __init__(self,type,source=None):
+    def __init__(self,type,source):
         # First initialize an object of father class(Data_to_Clean)
         super().__init__(source)
         # self.data is of type pd.DataFrame, now specific the MBTI type
@@ -450,16 +417,6 @@ class Data_to_Analyze(Data_to_Clean):
         with open(f"Data/{self.basic_identities["type"]}_translate_location.pkl","wb") as f:
             pickle.dump(result,f)
     
-    def translate_str(self):
-        for coord in tqdm(self.locations,desc="Translating string into English..."):
-            sentence=self.data.loc[coord[0],"posts"][coord[1]]
-            self.data.loc[coord[0],"posts"][coord[1]]=ollama.generate(
-                model=llm,
-                prompt=(
-                f"Translate from {coord[2]} to English: \"{sentence}\"\n"
-                f"Output ONLY the translated text." 
-            )       
-            )['response']
 
     def drop_non_english(self,level):
         '''
@@ -491,9 +448,10 @@ class Data_to_Analyze(Data_to_Clean):
 
 # %%
 def analyze_data_p1(TYPE):
-    data=Data_to_Analyze(type=TYPE)
+    data=Data_to_Analyze(type=TYPE,source=raw_data)
     data.remove_url()
     data.remove_mention_and_tag()
+
     # Some features like text readability need to be collected BEFORE the following cleaning procedures
     # Otherwise, they are NOT accurate
     data.get_sentence_quantity()
@@ -501,7 +459,7 @@ def analyze_data_p1(TYPE):
     data.get_upper_ratio()
     data.get_readability()
     data.get_vader_score()
-    print(data.basic_identities["type"],":",data.basic_identities["overall_vader_score"])
+
     # Continue to clean the data
     data.remove_emoji()
     data.remove_whitespace()
@@ -511,59 +469,71 @@ def analyze_data_p1(TYPE):
     data.remove_punct()
     data.remove_whitespace()
     data.totokens()
-    # data.locate_str_to_translate()
-    with open(f"Data\\cleaned_data\\{TYPE}_cleaned.pkl","wb") as f:
+    data.post_lemmatize()
+    
+    with open(f"Data\\cleaned_data\\p1\\{TYPE}_cleaned.pkl","wb") as f:
         pickle.dump(data,f)
-
-def post_concatenate(post_flatten):
-    all_posts.append(post_flatten)
 
 def analyze_data_p2(TYPE):
-    data=data_archieve[TYPE]
-    data.apply_ngram(bigram_phraser)
-    data.post_lemmatize()
+    with open(f"Data/cleaned_data/p1/{TYPE}_cleaned.pkl",'rb') as f:
+        data=pickle.load(f)
     data.remove_stopwords()
-    data.drop_empty()
-    # Save cleaned data to pickle binary files so that they can be loaded easily in other programs
-    with open(f"Data\\cleaned_data\\{TYPE}_cleaned.pkl","wb") as f:
+    data.concatenate_post()
+    with open(f"Data/cleaned_data/{TYPE}_cleaned.pkl","wb") as f:
         pickle.dump(data,f)
 
+# %% [markdown]
+# ### Main execution block
+
 if __name__ == "__main__":
+    # Data loading and spliting 
+    raw_data=pd.read_csv("Data\\twitter_MBTI.csv",encoding='utf-8')
+    raw_data.drop(columns="Unnamed: 0",inplace=True)
+    raw_data.columns=["posts","type"]
+
+    # %%
+    raw_data.head(20)
+
+    # %%
+    raw_data["type"].value_counts()
+
+    # %% [markdown]
+    # #### Sentence splitting
+
+    # %%
+    for i in raw_data.index:
+        raw_data.loc[i,"posts"]=raw_data.loc[i,"posts"].split("|||")
+
     # Analyze posts from all MBTI types
     for T in tqdm(MBTI_types):
         analyze_data_p1(T)
 
-    # %%
-    data_archieve={TYPE:None for TYPE in MBTI_types}
-    for TYPE in MBTI_types:
-        with open(f"Data\\cleaned_data\\{TYPE}_cleaned.pkl","rb") as f:
-            data_archieve[TYPE]=pickle.load(f)
-    all_posts=[]
-    for type_data in data_archieve.values():
-        type_data.data["posts"].apply(post_concatenate)
-    with open("Data/all_posts.json",'w') as f:
-        json.dump(all_posts,f)
-
     # %% [markdown]
-    # #### Train N-gram phraser model
+    # #### Add custom stopwords
 
     # %%
-    bigarm_model=Phrases(all_posts,min_count=5,threshold=100)
-    bigram_phraser=Phraser(bigarm_model)
+    with open("custom_stopwords_new.json","r") as f:
+        custom_stopwords=json.load(f)
+    stop_words.update(custom_stopwords)
+    stop_words
 
     # %%
-    bigarm_model.export_phrases()
+    len(stop_words)
 
     # %%
     for T in tqdm(MBTI_types):
         analyze_data_p2(T)
 
-    # %%
-    with open(f"Data\\cleaned_data\\infp_cleaned.pkl","rb") as f:
-        infp=pickle.load(f)
+    # %% [markdown]
+    # #### Train N-gram phraser model
 
     # %%
-    infp.data.to_csv("Data/infp_data.csv")
+    # bigarm_model=Phrases(all_posts,min_count=5,threshold=100)
+    # bigram_phraser=Phraser(bigarm_model)
+
+    # %%
+    # with open("Data/phrases.json","w") as f:
+    #     json.dump(bigarm_model.export_phrases(),f)
 
     # %% [markdown]
     # #### Demonstration of each step
@@ -571,21 +541,91 @@ if __name__ == "__main__":
     # %%
     import matplotlib.pyplot as plt
     result={}
-    for i in np.concatenate((np.array([0.0]),np.arange(0.5,0.96,0.05))):
+    for i in np.arange(0,1,0.15):
         result[f"{i:.2f}"]=0
-        isfj=Data_to_Analyze('infp')
-        isfj.remove_mention_and_tag()
-        isfj.remove_emoji()
-        isfj.remove_url()
-        isfj.remove_whitespace()
-        isfj.drop_non_english(i)
-        for j in isfj.data.index:
-            result[f"{i:.2f}"]+=len(isfj.data.loc[j,"posts"])
+        infp=Data_to_Analyze('infp',raw_data)
+        infp.remove_mention_and_tag()
+        infp.remove_emoji()
+        infp.remove_url()
+        infp.remove_whitespace()
+        infp.drop_non_english(i)
+        for j in infp.data.index:
+            result[f"{i:.2f}"]+=len(infp.data.loc[j,"posts"])
     result=pd.Series(result)
     plt.plot(result.index,result.values,label="Remaining Sentence Quantity")
     plt.xlabel("Filter Level")
     plt.ylabel("Sentence Quantity")
     plt.legend()
     plt.show()
+
+    # %%
+    infp=Data_to_Analyze('infp',raw_data)
+    infp.remove_url()
+    infp.remove_mention_and_tag()
+    infp.remove_emoji()
+    infp.remove_whitespace()
+    infp.remove_punct()
+    test=infp.data.loc[0,"posts"]
+
+    # %%
+    ans=0
+    for sentence in test:
+        ans+=len(sentence.split(" "))
+    ans
+
+    # %%
+    infp.drop_non_english(0.75)
+    infp.data.head(30)
+
+    # %%
+    infp.expand_contractions()
+    infp.data.head(30)
+
+    # %%
+    infp.tolower()
+    infp.data.head(30)
+
+
+    # %%
+    infp.remove_punct()
+    infp.data.head(30)
+
+    # %%
+    infp.totokens()
+    infp.data.head(30)
+
+    # %%
+    infp.post_lemmatize()
+    infp.data.head(30)
+
+
+    # %%
+    infp.remove_stopwords()
+    infp.data.head(30)
+
+    # %%
+    infp.remove_whitespace()
+    infp.data.head(30)
+
+    # %% [markdown]
+    # ### Consider adding a new dataset
+
+    # %%
+    extra_data=pd.read_csv("Data\MBTI_500.csv",encoding='utf-8')
+    extra_data
+
+    # %%
+    extra_data['posts']=extra_data['posts'].apply(lambda x:x.split())
+
+    # %%
+    test=extra_data.loc[0,'posts']
+    test
+
+    # %%
+    for T in tqdm(MBTI_types):
+        data=Data_to_Analyze(type=T,source=extra_data)
+        data.remove_stopwords()
+        with open(f'Data/cleaned_data/extra/{T}_extra.pkl','wb') as f:
+            pickle.dump(data,f)
 
 
