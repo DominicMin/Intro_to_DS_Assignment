@@ -154,9 +154,84 @@ custom_stopwords=[
     "che", "par", "cos", "str", "fin", "ref", "rec", "lf", "vc", "hw", "gp", 
     "sf", "liv", "amo", "peo", "shi", "gw", "nya", "pu", "mak", "bub", "sht", 
     "kan", "ent", "pla", "loo", "whi", "hap", "mot", "teh", "par", "yew", "ddd",
+
+    # === 基于LDA主题分析结果新增的停用词 ===
+
+    # 从Topic 15（噪音主题 - 通用表达词汇）中提取的高频停用词
+    "know", "think", "feel", "come", "right", "tell", "watch", "use", "try", 
+    "sorry", "little", "long",
+
+    # 从Topic 11（噪音主题 - 自动化功能与零散内容）中提取
+    "automatically", "unfollowed", "comment", "wonderful", "direct", "return", 
+    "opportunity", "surprise", "dozen", "tag", "join", "bless", "sign", "alright",
+
     
-   
+
+    # 从社交媒体互动中提取的通用词汇
+    "yall", "shut", "reply", "block", "direct", "follower", "mutual", "interact", 
+    "goodnight", "forever", "suck", "dead", "ship", "fav", "anyways",
+
+    # 单字母和无意义缩写
+    "j", "e", "f", "nd", "sh", "mi", "eng",
+
+    # 从可解释主题中提取的过于通用的词汇（保守添加）
+    "express", "address", "disbelief", "informal", "throw", "fall", "tire",
+    "smile", "especially", "worry", "choose", "amaze", "piece", "light", 
+    "answer", "decide", "color", "matter", "sense", "issue", "control", 
+    "case", "mood", "plan", "version", "perform", "voice", "cover", "era", 
+
+
+    # 菲律宾语和其他非英语词汇扩展
+    "aku", "hai",  "eid", "bgt", "banget", "kak", "youu", "hru", 
+    "ilysm", "tt",  "bb", "ure", "bae", "omggg", "pero", "kai", 
+    "kaya", "goodmorning", "tangina", "wala", "pala", "loml",
+ 
+       # === 基于19主题LDA模型新增的停用词 ===
+
+    # # 从Topic 3（噪音主题 - 社交媒体零散互动）中提取
+    # "layout", "playful", "edit", "delete", "expression", "smth", "sob", 
+    # "doesnt", "steal", "carrd", "dw", "bore", "yk", "user", "bcs", "lh", 
+    # "active", "silly", "wdym", "holy",
+
+    # # 从Topic 7（噪音主题 - 日常生活零散词汇）中提取  
+    # "car", "dog", "photo", "drive", "summer", "sit", "drink", "food", 
+    # "coffee", "room", "order", "season", "dad", "set", "water", "covid", 
+    # "bed", "ready", "ticket", "trip", "city", "box", "sell", "store", 
+    # "pick", "catch", "spend", "park", "visit", "date",
+
+    # # 从Topic 14（噪音主题 - 通用表达词汇）中提取的高频停用词
+    # "look", "need", "thank", "work", "today", "bad", "tell", "happy", 
+    # "morning", "play", "hate",
+
+    # # 从Topic 18（噪音主题 - 抽象概念与商业术语）中提取
+    # "experience", "self", "create", "human", "thread", "business", "base", 
+    # "team", "community", "easy", "important", "consider", "build", "market", 
+    # "focus", "company", "level", "project", "power", "set", "energy", "term", 
+    # "article", "value", "list", "future", "opinion", "interesting", "grow", "fear",
+
+    # # 从可解释主题中提取的过于通用的词汇（19主题模型）
+    # "group", "vote", "member", "stream", "mv", "release", "dance", "concert", 
+    # "debut", "concept", "teaser", "main", "build", "save", "quest", "card", 
+    # "weapon", "leak", "id", "kiss", "hug", "scene", "episode", "series", 
+    # "season", "fic", "manga", "au", "ep", "fandom", "drama", "star", "novel", 
+    # "writer", "arc", "plot", "tear", "spoiler", "catch", "romance", "felt", 
+    # "favourite", "seriously", "item", "tour", "suddenly", "leader", "cut", 
+    # "communication", "solo", "instead", "explain", "exist", "mask", "tour", 
+    # "seed", "circus", "flip", "design", "commission", "artist", "link", 
+    # "drawing", "appreciate", "style", "chat", "player", "content", "update", 
+    # "exclamation", "server", "sketch", "animal", "energy", "gorgeous", 
+    # "placement", "email", "young", "boyfriend", "update", "line", "pre", 
+    # "result", "receive", "stress", "everyday", "teach", "felt", "lord", 
+    # "luck", "sister", "heardle", "busy", "stage", "young", "gon", "ve", 
+    # "scream", "queen", "shake", "scene", "daddy", "king", "sir", "banger", 
+    # "safe", "ready", "academy", "spoiler", "pop", "scene", "archive",
+
+    # # 网络俚语和缩写扩展（从19主题中提取）
+    # "smth", "dw", "yk", "bcs", "lh", "wdym", "aye", "ve", "imma", "nigga",
+
+    # # 单字母和短缩写（从19主题中提取）
+    # "st", "ep", "vol", "dk", "gose", "oj", "mar", "uni", "math",
 ]
 
-with open("py_Code/custom_stopwords_new.json","w") as f:
+with open("py_Code/custom_stopwords.json","w") as f:
     json.dump(custom_stopwords,f)
