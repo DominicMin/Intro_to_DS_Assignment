@@ -1,0 +1,269 @@
+%============================================================
+%  Xiamen University Malaysia Article Template
+%  Compile with XeLaTeX or LuaLaTeX to ensure Times New Roman
+%============================================================
+\documentclass[12pt]{article}
+
+%------------------------------------------------------------
+% Packages
+%------------------------------------------------------------
+\usepackage{fontspec}      % For Times New Roman
+\usepackage{setspace}      % For line spacing
+\usepackage{geometry}      % Page margins
+\usepackage{fancyhdr}      % Header & footer
+\usepackage{titlesec}      % Custom headings
+\usepackage{csquotes}      % Quotation tools (optional)
+\usepackage{listings}
+\usepackage{xcolor} 
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue,citecolor=black]{hyperref}
+\usepackage[backend=biber,style=apa]{biblatex}
+\addbibresource{references.bib}  % 不要加 .bib 扩展名
+
+
+%------------------------------------------------------------
+% Fonts & Spacing
+%------------------------------------------------------------
+\setmainfont{Times New Roman}
+\setstretch{1.5}           % 1.5 line spacing
+
+%------------------------------------------------------------
+% Geometry (1‑inch margins by default)
+%------------------------------------------------------------
+\geometry{a4paper, margin=1in}
+
+%代码格式
+\lstset{
+	language=Python,
+	backgroundcolor=\color[RGB]{245,245,244},  % 灰色背景
+	frame=none,
+	basicstyle=\ttfamily\small,
+	keywordstyle=\color{blue},
+	commentstyle=\color{gray},
+	stringstyle=\color{red},
+	numbers=left,
+	numberstyle=\tiny,
+	stepnumber=1,
+	numbersep=5pt,
+	breaklines=true,
+	captionpos=b,
+	tabsize=4
+}
+
+
+%------------------------------------------------------------
+% Header & Footer
+%------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}                              % Clear default header/footer
+\fancyhead[C]{XIAMEN UNIVERSITY MALAYSIA} % Centered header text
+\fancyfoot[C]{\thepage}                % Centered page number
+\renewcommand{\headrulewidth}{0pt}      % Remove header line
+
+%------------------------------------------------------------
+% Title & Section Formatting (14‑pt Times New Roman, bold)
+%------------------------------------------------------------
+\titleformat{\section}
+{\fontsize{14pt}{16pt}\selectfont\bfseries}
+{\thesection}{1em}{}
+
+\titleformat{\subsection}
+{\fontsize{14pt}{16pt}\selectfont\bfseries}
+{\thesubsection}{1em}{}
+
+% Optional: adjust subsubsection as “subtitle” too
+\titleformat{\subsubsection}
+{\fontsize{14pt}{16pt}\selectfont\bfseries}
+{\thesubsubsection}{1em}{}
+
+% Ensure normal text stays 12‑pt Times New Roman (set by documentclass)
+
+%------------------------------------------------------------
+% Document begins
+%------------------------------------------------------------
+\begin{document}
+	
+	% ----------------- Main Content ----------------------------
+	
+	% Example Title (remove if not needed)
+	%\section*{Sample Document Title}
+	%\addcontentsline{toc}{section}{Sample Document Title}
+	
+	\section{Introduction}
+	%为什么没有缩进。。。。
+	With the recent renewal of the MBTI's popularity, posts or analyses about it have become widespread on public platforms. It seems that MBTI has become a way people use at first meetings.
+	
+	The Myers-Briggs Type Indicator (MBTI) is a psychological framework primarily used to describe and measure personality traits by categorizing individuals into four dichotomous dimensions. In essence, it aims to reflect how people perceive the world and make decisions based on their internal experiences(\cite{yang2022research}).
+	
+	And the test is conducted through asking a series of questions, and the type of question is kind of like asking about the tendency to do something. Based on the responses, individuals receive a result represented by four letters, each corresponding to one of the four bipolar dimensions. According to \textcite{boyle1995mbti}, these four dichotomous dimensions classify individuals as either extraverted (E) or introverted (I), sensing (S) or intuitive (N), thinking (T) or feeling (F), and judging (J) or perceiving (P). Combinations of the four preferences generate one of 16 personality types (e.g., ESFJ, ENFP, INTP, ISFJ), each associated with distinct behavioral tendencies, reflecting differences in attitudes, orientation, and decision-making styles. Also, on the official website, it will provide the future career options for you, like INFP, which may be more suitable for being an author. The percentage of each standard will also show in the final result.
+	
+	The MBTI provides a widely recognized and accessible way to understand personality, making it a useful foundation for further behavioral and data-driven analysis.
+	
+	\section{Objective}
+	\begin{enumerate} 
+		\item Evaluate the reliability of the MBTI from a statistical perspective.    \item Explore the potential application of MBTI in social media behavior analysis.    
+		\item Help people better understand personality traits and behavioral patterns.    
+		\item Helping people eliminate stereotypes caused by MBTI personality types.
+	\end{enumerate}
+	
+	\section{Problem Statements}
+	\begin{enumerate}
+		\item Are the results of the MBTI personality test statistically robust and reliable?
+		\item Do the four dimensions of MBTI work independently, or are they connected in some way?
+		\item Do people with different MBTI types have different levels of activity on the internet?
+		\item Do significant differences exist in the interest preferences and behavioral patterns of different MBTI personality types on social networking sites?
+	\end{enumerate}
+	
+	\section{Data Collection}
+	\begin{enumerate}
+		\item “MBTI Personality Type Twitter Dataset”
+		
+		Tweets were originally harvested from the public Twitter API by a third-party collector and later released on Kaggle by Mazlumi(\url{https://www.kaggle.com/datasets/mazlumi/mbti-personality-type-twitter-dataset})
+		\begin{itemize}
+			\item 8,600 Twitter users, and 1 million raw tweets.
+			\item Each user record contains the self-declared MBTI type (e.g., “ENFP”) taken from the user’s bio.
+			\item The text has not been further cleaned or filtered—URLs, emojis, hashtags, and retweets remain. Researchers must therefore perform their preprocessing (tokenisation, stop-word removal, emoji handling, etc.) before analysis.    
+		\end{itemize}
+		\item “KPMIRU Questionnaires Data”
+		
+		Questionnaire responses compiled and shared on Kaggle by Pmenshih(\url{https://www.kaggle.com/datasets/pmenshih/kpmiru-questionnaires-data})
+		\begin{itemize}
+			\item Contains every participant’s item-level answers to the full KPMIRU personality inventory (several dozen Likert-scale questions).
+			\item Provides the scored results for all four MBTI dimensions—reported as continuous scores (0–100 per axis) as well as the final type label (e.g., “ISTJ”).
+			\item Demographic fields (age range, gender, education) are included, enabling richer statistical controls. 
+		\end{itemize}
+		
+		Together, the Twitter dataset supplies large-scale, real-world language samples with self-reported types, while the KPMIRU dataset offers clean, psychometrically scored questionnaire data. The two sources complement each other for training and validating our emotion-aware MBTI models.
+	\end{enumerate}
+	\begin{figure}[H]
+		\centering
+		\includegraphics{Q1P1} %这个图片怎么这么糊啊(┬┬﹏┬┬),到时候让csq重新截图给我
+		\caption{reading data sets}
+	
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.9\textwidth]{Q1P2}
+		
+	\end{figure}
+	As illustrated in the two Figures above, the combined Kaggle sources provide information on:
+	\begin{enumerate}
+		\item Self-reported MBTI types for each respondent
+		\item Raw Twitter posts and basic tweet metadata linked to those MBTI labels  
+		\item Demographic and psychometric questionnaire answers (KPMIRU survey) 
+		\item Behavioral metrics such as posting frequency and topic keywords extracted from the tweets
+	\end{enumerate}
+	
+	\section{Exploratory Data Analysis (EDA)}
+	\subsection{Data Visualization}
+	\subsubsection{MBTI Type Frequency}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.9\textwidth]{Q1P3EDA1}
+		
+	\end{figure}
+	
+	A frequency bar chart of the 16 MBTI types was generated using the value\_counts() function on the psychotype column. The result was plotted using matplotlib and is shown in Figure 4.1.1.
+	%后面需要统一图片命名！！
+	\begin{figure}[H]
+		\centering
+		\includegraphics{Q1EDA2} 
+		\caption{Frequency of 16 MBTI Types}		
+	\end{figure}
+	
+	As seen in Figure 4.1.1 above, the frequency of 16 MBTI types has been shown in a descending order. The type ESTJ ranks first, which shows that, based on our dataset, the proportion of ESTJ people is the highest. Conversely, the proportion of INFP people is the lowest. Additionally, it can be observed that the \_S\_J people rankings are relatively high in frequency, as the \_NF\_ people rankings are relatively low.
+	
+	Also, Figure 4.1.1 exhibits severe right oblique imbalance distribution, as the number of ESTJ people is nearly nine times as many as the number of INFP people. This phenomenon may be attributed to our database being originally from Kaggle, and certain MBTI type tends to participate in such investigations.
+	
+	This contrasts with national MBTI distribution statistics reported in the MBTI® Manual, where ISFJ and ESFJ were found to be the most common types among U.S. adults (Myers et al., 1998), suggesting that our dataset, to a certain extent, fits the population-level trends. In distinct regions, the regional differences may influence MBTI type distributions in specific rankings.
+	
+	\subsubsection{MBTI Type Frequency}
+		\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.9\textwidth]{Q1EDA3}
+		
+	\end{figure}
+	
+	Histograms of scores in each MBTI dimension were generated using pandas.DataFrame.hist and visualized with matplotlib as shown in Figure 4.1.2.
+	\begin{figure}[H]
+		\centering
+		\includegraphics{Q1EDA4} 
+		\caption{Histogram of MBTI Dimension Scores}		
+	\end{figure}
+	
+	As seen in Figure 4.1.2 above, from the score concentration trend, the eight MBTI poles vary in concentration. For example, E, S, and T scores are generally spread from 10 to 40, while N and I scores are more narrowly concentrated between 5 to 30. And in detail, in the dimension of P and T, exhibit higher scores, which shows the preference toward Thinking and Perceiving. Compared to them, in the dimension of N and I, they exhibit lower scores, which indicates most people are more inclined toward Extraversion and Sensing.
+	
+	From the data obtained from these diagrams, we can observe that most samples in these dimensions show distributional asymmetries, as not evenly distributed. Particularly for the high values of J and low values of N, this result matches the observation at 4.1.1 that \_S\_J types dominate the database.
+	
+	\subsubsection{MBTI Type Frequency}
+	\subsubsection{MBTI Type Frequency}
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Q1EDA5}
+	
+	\end{figure}	
+	
+	Descriptive statistics of each MBTI dimension were computed and consolidated into a single summary table, including skewness and kurtosis, to facilitate score distribution analysis shown in Table 4.1.1
+	%这里table要改！！
+	\begin{figure}[H]
+		\centering
+		\includegraphics{Q1EDA6} 
+		\caption{Descriptive Statistics of MBTI Dimension Scores}		
+	\end{figure}
+	
+	%还有交叉引用要改（不过是不是不改也行？	
+	Based on Table 4.1.3, it can be observed that the dimensions of I, S, N, and F showcase a notable positive skew distribution, as the dimension of N, with a value of -0.11, demonstrates left skewness most. This phenomenon tends to show that most people are more likely to be Sensing(S) and so on. And in contrast, the dimension of P with the value of +0.05 exhibits right skewness, implying a preference towards lower values, showing that Judging(J) dominates more in this database. Results of these also support the conclusion in Figure 4.1.1 that \_S\_J people occupy the majority.
+	
+	And from the kurtosis value, it can be seen that most values are around 0 and negative, which suggests that all the dimension is distributed platykurtic. With relatively concentrated values, this exhibits the loss of extreme outliers. Also, the maximum value and minimum value that all dimensions have can be used in the form of Max-Min, which demonstrates that J and P dimensions have the largest difference, indicating that individual differences between them are the strongest.
+	\begin{figure}[H]
+		\centering
+		\includegraphics{Q1EDA7} 
+		\caption{MBTI Distribution of 16 Personality Types}		
+	\end{figure}
+	
+	Figure 4.1.3 MBTI Distribution of 16 Personality Types from Jang and Kim (2014), supporting the dominance of \_S\_J types observed in our dataset. 
+	
+	\subsubsection{MBTI Type Frequency}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.9\textwidth]{Q1EDA8}
+		
+	\end{figure}	
+	A Pearson correlation heatmap was constructed to visualize linear relationships among MBTI dimension scores, as shown in Figure 4.1.4.
+	\begin{figure}[H]
+		\centering
+		\includegraphics{Q1EDA9} 
+		\caption{Correlation Heatmap of MBTI Dimension Scores}		
+	\end{figure}
+	
+	As seen in Figure 4.1.4 above, the correlation between the opposite dimensions, like E vs I, S vs N, T vs F, and J vs P. All of them are strongly negative, which is consistent with the design concept of MBTI, as the two poles of each dimension are opposed. As a result, the MBTI method has its rationality. This result aligns with (Li et al., 2024), who also observed that “the correlations between the four axes are generally weak, indicating that the personality traits on each axis are relatively independent” (p. 12).
+	
+	Furthermore, in Figure 4.1.4, the correlation between other dimension pairs is low are nearly 0. This phenomenon supports that the dimensions are seemingly independent. While the correlation between S and T is +0.16, a bit larger than others, it indicates that someone who is Sensing(S) tends to be Thinking(T). In contrast, the correlation between S and P is -0.13, which indicates that those who are Sensing(S) tend to be Judging(J).
+	
+	\subsection{Sample Equation}
+	Here is a displayed equation for illustration:
+	\[
+	E = mc^{2}
+	\]
+	
+	\section{Method}
+	Continue writing your content here.
+	\begin{lstlisting}
+		def quicksort(arr):
+		if len(arr) <= 1:
+		return arr
+		pivot = arr[0]
+		left = [x for x in arr[1:] if x < pivot]
+		right = [x for x in arr[1:] if x >= pivot]
+		return quicksort(left) + [pivot] + quicksort(right)
+	\end{lstlisting}
+	
+	
+
+
+% ----------------- References ------------------------------
+
+	\printbibliography[title={References}]
+
+\end{document}
