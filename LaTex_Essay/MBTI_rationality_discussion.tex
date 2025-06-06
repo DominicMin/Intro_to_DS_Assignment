@@ -34,22 +34,32 @@
 \geometry{a4paper, margin=1in}
 
 %代码格式
-\lstset{
-	language=Python,
-	backgroundcolor=\color[RGB]{245,245,244},  % 灰色背景
-	frame=none,
-	basicstyle=\ttfamily\small,
-	keywordstyle=\color{blue},
-	commentstyle=\color{gray},
-	stringstyle=\color{red},
-	numbers=left,
-	numberstyle=\tiny,
-	stepnumber=1,
-	numbersep=5pt,
-	breaklines=true,
-	captionpos=b,
-	tabsize=4
-}
+\lstnewenvironment{python}[1][]
+{
+	\lstset{
+		language=Python,
+		basicstyle=\ttfamily\small,
+		numbers=left,
+		numberstyle=\tiny\color{gray},
+		numbersep=2pt,            % 数字到文字之间 2pt
+		frame=single,
+		framesep=2pt,             % 框线内四周都留 2pt
+		xleftmargin=0pt,          % 整个框紧贴正文左边距
+		framexleftmargin=2pt,     % 框线内左侧到文字 2pt
+		backgroundcolor=\color[RGB]{245,245,245},
+		breaklines=true,
+		breakindent=10pt,
+		keywordstyle=\color[RGB]{255,119,0},
+		morekeywords={as, self},
+		deletekeywords={print},
+		keywordstyle=[2]\color[RGB]{144,0,144},
+		morekeywords=[2]{print},
+		stringstyle=\color[RGB]{0,170,0},
+		commentstyle=\color[RGB]{221,0,0},
+		showstringspaces=false,
+		#1
+	}
+}{}
 
 
 %------------------------------------------------------------
