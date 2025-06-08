@@ -47,7 +47,7 @@ custom_stopwords=[
     "finger", "arm", "leg", "foot", "body", "heart", "brain",
     
     # General color words
-    "red", "blue", "green", "yellow", "black", "white", "pink", "purple", 
+    "red", "blue", "green", "yellow", "white", "purple", 
     "orange", "brown", "gray", "grey",
     
     # Quantity and degree words
@@ -183,31 +183,21 @@ custom_stopwords=[
     # Single letter and meaningless abbreviations
     "j", "e", "f", "nd", "sh", "mi", "eng",
 
-    # Overly general vocabulary from explainable topic (conservative addition)
-    "express", "address", "disbelief", "informal", "throw", "fall", "tire",
-    "smile", "especially", "worry", "choose", "amaze", "piece", "light", 
-    "answer", "decide", "color", "matter", "sense", "issue", "control", 
-    "case", "mood", "plan", "version", "perform", "voice", "cover", "era", 
-
 
     # Filipino and other non-English vocabulary extensions
-    "aku", "hai",  "eid", "bgt", "banget", "kak", "youu", "hru", 
-    "ilysm", "tt",  "bb", "ure", "bae", "omggg", "pero", "kai", 
+    "aku", "hai",  "eid", "bgt", "banget", "kak", "youu", "hru",
+    "ilysm", "tt",  "bb", "ure", "bae", "omggg", "pero", "kai",
     "kaya", "goodmorning", "tangina", "wala", "pala", "loml",
- 
+    "mau", "apa", "nak", "ini", "ada", "lu", "tu", "dia", "lah", 
+    "lagi", "ke", "yang", "udah", "dong", "sama", "que", "unnie", 
+    "noona", "oppa",
+
     # === Stopwords added from LDA topic analysis ===
 
     # High-frequency stopwords from Topic 14 (noise topic - general expression vocabulary)
     "look", "need", "thank", "today", "bad", "tell", "happy", 
     "morning",  "hate",
 
-    # Stopwords from Topic 18 (noise topic - abstract concepts and business terms)
-    "experience", "self", "create", "human", "thread", "business", "base", 
-    "team", "community",  "build", "market", 
-    "focus", "company", "level", "project", "power",  "energy", "term", 
-    "article", "value",  "future", "opinion",  "grow", "fear",
-
-    
 
     # Internet slang and abbreviations (from Topic 19)
     "smth", "dw", "yk", "bcs", "lh", "wdym", "aye", "ve", "imma", "nigga", "bitch",
@@ -219,36 +209,11 @@ custom_stopwords=[
 
     # High-frequency stopwords from Topic 21 (noise topic - general vocabulary)
     # These are the most frequent general vocabulary, which does not contribute to topic modeling
-    "like", "know", "wordle", "oh", "good", "think", "love", "want", 
+    "like", "know", "wordle", "oh", "good", "think",  "want", 
     "look", "need", "thank", "right", "come", "feel", "work", "watch", 
     "today", "use", "try", "bad", "tell", "happy", "literally", "actually", 
     "cute", "morning", "play", "hate", "sorry", "little","doesnt",
     
-    # === Stopwords added from LDA topic analysis ===
-    
-    # # Vocabulary from Topic 14 (noise topic - mixed daily topics)
-    # "child", "date",  "act", "parent", "sick", 
-    # "father",  "dad", "stand", "mother", "mental",  
-    # "annoy", "age", "lord", "ex", "marry", "sister", "husband", 
-    #  "normal", "male", "explain", "instead", "pain", 
-    # "room", "hat", "respect", "dog", "lady", "sit", "treat", "son",
-    
-    # Additional vocabulary from Topic 21 (noise topic - general high-frequency vocabulary)
-    "item", "big", "hair", "hear", "head", "cool", "thanks", "nice", "great",
-    
-    # Overly general vocabulary from explainable topic (conservative addition)
-    
-    # General vocabulary from Topic 2 (emotion expression)
-    "ready", "safe", "warm", "catch", "felt", 
-    
-    # General vocabulary from Topic 1 (British life)
-    "sick", "car", "train",
-    
-    # General vocabulary from Topic 20 (daily life)
-    "drive", "sit", "clean", "cut", "fast",
-    
-    # General vocabulary from Topic 3 (LGBTQ+ identity)
-    "edit", "delete", "user", "main"
 ]
 
 with open("py_Code/custom_stopwords.json","w") as f:
