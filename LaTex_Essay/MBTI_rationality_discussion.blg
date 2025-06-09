@@ -1,0 +1,19 @@
+[0] Config.pm:308> INFO - This is Biber 2.20
+[1] Config.pm:311> INFO - Logfile is 'MBTI_rationality_discussion.blg'
+[228] biber-MSWIN64:340> INFO - === 
+[326] Biber.pm:420> INFO - Reading 'MBTI_rationality_discussion.bcf'
+[579] Biber.pm:994> INFO - Found 4 citekeys in bib section 0
+[622] Biber.pm:4463> INFO - Processing section 0
+[652] Biber.pm:4654> INFO - Looking for bibtex file 'references.bib' for section 0
+[784] bibtex.pm:1713> INFO - LaTeX decoding ...
+[803] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
+[923] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[923] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[923] Biber.pm:4283> INFO - Sorting list 'apa/apasortcite//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
+[923] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[947] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[947] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[947] Biber.pm:4283> INFO - Sorting list 'apa/global//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
+[947] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[955] bbl.pm:676> INFO - Writing 'MBTI_rationality_discussion.bbl' with encoding 'UTF-8'
+[964] bbl.pm:779> INFO - Output to MBTI_rationality_discussion.bbl

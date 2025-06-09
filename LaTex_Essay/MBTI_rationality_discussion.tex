@@ -16,6 +16,7 @@
 \usepackage{listings}
 \usepackage{xcolor} 
 \usepackage{float}
+\usepackage{indentfirst}
 \usepackage{graphicx}
 \usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue,citecolor=black]{hyperref}
 \usepackage[backend=biber,style=apa]{biblatex}
@@ -41,7 +42,7 @@
 		basicstyle=\ttfamily\small,
 		numbers=left,
 		numberstyle=\tiny\color{gray},
-		numbersep=2pt,            % 数字到文字之间 2pt
+		numbersep=8pt,            % 数字到文字之间 2pt
 		frame=single,
 		framesep=2pt,             % 框线内四周都留 2pt
 		xleftmargin=0pt,          % 整个框紧贴正文左边距
@@ -165,6 +166,78 @@
 		\item Behavioral metrics such as posting frequency and topic keywords extracted from the tweets
 	\end{enumerate}
 	
+	\section{Data Cleaning and Pre-processing}
+	\subsection{Handling Missing Values}
+	\begin{enumerate}
+		\item We use dropna() to eliminate any records with missing or null entries. Fortunately, the dataset had no missing psychotype labels or scoring data.
+			\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.9\textwidth]{Q1P4}
+			
+		\end{figure}
+	\end{enumerate}
+	\subsection{Outlier Detection and Correction}
+	\begin{enumerate}
+		\item Outliers in numeric scores were identified using the IQR (interquartile range) method.
+		\item For each numeric column, we computed Q1, Q3. IQR = Q3 - Q1 represent the middle 50\% of the data distribution. The lower\_bound and upper\_bound represent the boundaries of the normal range under the Interquartile Range (IQR) rule. And then we replaced values outside [Q1 − 1.5×IQR, Q3 + 1.5×IQR] with the column median. 
+		\item The median substitution method mainly serves to stabilize the overall distribution and avoid the influence of extreme values.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.9\textwidth]{Q1P5}
+			
+		\end{figure}
+	\end{enumerate}
+	\subsection{Export the cleaned data}
+	After completing the outlier replacement and data cleaning process, we used df.info() to verify the integrity and structure of the cleaned dataset. The cleaned DataFrame was then exported using the to\_csv() method, which saved it as kpmi\_ru\_data(Cleaned).csv for downstream analysis. The index=False parameter ensured that row indices were not written to the CSV file.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.9\textwidth]{Q1P6}
+		
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.9\textwidth]{Q1P7}
+		
+	\end{figure}
+	The data in the figure 3.1 is the data after our data cleaning.
+	
+	\section{Model Building and Evaluation}
+	Chi-square test is an on parametric statistical test to determine if the two or more classifications of the samples are independent or not\cite{zibran2007chi}. We all know that MBTI has four dimensions(Extraversion–Introversion (E–I), Sensing–Intuition (S–N), Thinking–Feeling (T–F) and Judging–Perceiving (J–P)). But whether or not these four dimensions interrelated or independent of each other stays unknown. For explanation, let’s consider the data presented in Figure 3.1 which comprising 100 000 respondents, providing information on the scoring fields of the four dimensions of MBTI. In order to find the answer, we use the chi-square test.
+	
+	Each respondent’s type label (e.g., ENTP) was decomposed into its four constituent letters, and the sample was cross-classified into a 2 × 2 × 2 × 2 contingency table (16 cells)(shown in figure 3.2) 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.9\textwidth]{Q1P8}
+		
+	\end{figure}
+	Then we calculate the marginal distribution (the distribution of each dimension separately), for example, N\_IE = [count(E), count(I)](shown in figure3.3)
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.9\textwidth]{Q1P9}
+		
+	\end{figure}
+	Under the null hypothesis of mutual independence, the expected frequency in each cell was computed as the product of the four one-dimensional marginal distributions multiplied by the sample size.(shown in figure3.4)
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.9\textwidth]{Q1P10}
+		
+	\end{figure}
+	Now, it’s time to calculate the Pearson chi-square statistic, while O is observed value and E is expected value.(shown in figure 3.5)
+	\[
+	\chi^2 = \sum \frac{(O - E)^2}{E}
+	\]
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.9\textwidth]{Q1P10}
+		
+	\end{figure}
+	Finally, with χ² = 1342.93 and df = 11,we can compute the right - tailed probability corresponding to the chi - square statistic under 10 degrees of freedom, which is 0(shown in figure 3.6). Because the p-value falls far below the conventional α =0.05 threshold, the null hypothesis is decisively rejected: the observed joint distribution of MBTI preferences deviates dramatically from what would be expected if the four indices varied independently. In practical terms, substantial associations exist among the E–I, S–N, T–F and J–P scales, corroborating earlier psychometric critiques that the MBTI dimensions are not orthogonal factors but overlap to a non-trivial extent. Actually, some researchers had also proven that the four dimensions of MBTI are not independent. \textcite{fleenor1997relationship} investigated the intercorrelations among MBTI continuous scores and found that while most dimension pairs demonstrated relatively low correlations, the correlation between the Sensing–Intuition (SN) and Judging–Perceiving (JP) scales was notably higher. Specifically, the study reported a correlation coefficient of r = 0.41 between SN and JP, indicating a moderate positive relationship. This finding has been replicated in other research and suggests that individuals who prefer intuition are more likely to also prefer perceiving. As such, the assumption of strict statistical independence between MBTI preference axes, particularly between SN and JP, may not hold, which is in line with the findings of our study.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.9\textwidth]{Q1P11}
+		
+	\end{figure}
+	
 	\section{Exploratory Data Analysis (EDA)}
 	\subsection{Data Visualization}
 	\subsubsection{MBTI Type Frequency}
@@ -259,21 +332,21 @@
 	
 	\section{Method}
 	Continue writing your content here.
-	\begin{lstlisting}
-		def quicksort(arr):
-		if len(arr) <= 1:
-		return arr
-		pivot = arr[0]
-		left = [x for x in arr[1:] if x < pivot]
-		right = [x for x in arr[1:] if x >= pivot]
-		return quicksort(left) + [pivot] + quicksort(right)
-	\end{lstlisting}
+	\begin{python}
+def quicksort(arr):
+if len(arr) <= 1:
+return arr
+pivot = arr[0]
+left = [x for x in arr[1:] if x < pivot]
+right = [x for x in arr[1:] if x >= pivot]
+return quicksort(left) + [pivot] + quicksort(right)
+	\end{python}
 	
 	
 
 
 % ----------------- References ------------------------------
 
-	\printbibliography[title={References}]
+\printbibliography[title={References}]
 
 \end{document}

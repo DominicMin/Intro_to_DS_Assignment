@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.5.31)  6 JUN 2025 20:53
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.5.31)  9 JUN 2025 12:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -201,6 +201,9 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box56
 \@float@everytoks=\toks24
 \@floatcapt=\box57
+)
+(c:/texlive/2025/texmf-dist/tex/latex/tools/indentfirst.sty
+Package: indentfirst 2023/07/02 v1.03 Indent first paragraph (DPC)
 )
 (c:/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
@@ -658,26 +661,26 @@ Package csquotes Info: ... none found.
 (./MBTI_rationality_discussion.aux)
 \openout1 = `MBTI_rationality_discussion.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
 
 Package fontspec Info: 
 (fontspec)             Adjusting the maths setup (use [no-math] to avoid
@@ -685,64 +688,64 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 95.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 95.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 95.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 95.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 95.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 95.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 95.
-LaTeX Font Info:    Redeclaring math accent \check on input line 95.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 95.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 95.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 95.
-LaTeX Font Info:    Redeclaring math symbol \colon on input line 95.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 95.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 95.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 95.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 95.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 95.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 95.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 95.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 95.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 95.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 95.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 95.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 95.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 95.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 96.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 96.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 96.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 96.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 96.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 96.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 96.
+LaTeX Font Info:    Redeclaring math accent \check on input line 96.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 96.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 96.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 96.
+LaTeX Font Info:    Redeclaring math symbol \colon on input line 96.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 96.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 96.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 96.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 96.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 96.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 96.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 96.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 96.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 96.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 96.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 96.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 96.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 96.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 95.
+(Font)              `operators' in the math version `normal' on input line 96.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> TU/TimesNewRoman(0)/m/n on input line 9
-5.
+6.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 95.
+(Font)              `operators' in the math version `bold' on input line 96.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/m/n on input line 
-95.
+96.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/m/n on 
-input line 95.
+input line 96.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> TU/TimesNewRoman(0)/m/it on input line
- 95.
+ 96.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/b/n on input line 
-95.
+96.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 95.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 96.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 95.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 96.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/b/n on 
-input line 95.
+input line 96.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> TU/TimesNewRoman(0)/b/it on input lin
-e 95.
+e 96.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 95.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 96.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 95.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 96.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -779,7 +782,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \c@lstlisting=\count448
-Package hyperref Info: Link coloring ON on input line 95.
+Package hyperref Info: Link coloring ON on input line 96.
 (./MBTI_rationality_discussion.out) (./MBTI_rationality_discussion.out)
 \@outlinefile=\write4
 \openout4 = `MBTI_rationality_discussion.out'.
@@ -818,21 +821,11 @@ Package biblatex Info: Automatic encoding selection.
 \openout3 = `MBTI_rationality_discussion.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'MBTI_rationality_discussion.bbl' not found.
+Package biblatex Info: ... file 'MBTI_rationality_discussion.bbl' found.
 
-No file MBTI_rationality_discussion.bbl.
-Package biblatex Info: Reference section=0 on input line 95.
-Package biblatex Info: Reference segment=0 on input line 95.
-
-LaTeX Warning: Citation 'yang2022research' on page 1 undefined on input line 10
-7.
-
-
-LaTeX Warning: Citation 'boyle1995mbti' on page 1 undefined on input line 109.
-
-
-LaTeX Warning: Citation '' on page 1 undefined on input line 109.
-
+(./MBTI_rationality_discussion.bbl)
+Package biblatex Info: Reference section=0 on input line 96.
+Package biblatex Info: Reference segment=0 on input line 96.
 
 
 
@@ -846,13 +839,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 ]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 132.
+(Font)              <12> on input line 133.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 132.
+(Font)              <8> on input line 133.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 132.
+(Font)              <6> on input line 133.
 
-Overfull \hbox (7.61218pt too wide) in paragraph at lines 140--141
+Overfull \hbox (7.61218pt too wide) in paragraph at lines 141--142
 []\TU/TimesNewRoman(0)/m/n/12 Questionnaire responses compiled and shared on Ka
 ggle by Pmenshih([][]$[][][][][] [] [] [] [][][] [] [][][][][][] []
  []
@@ -867,65 +860,179 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [2]
-
-! LaTeX Error: File `Q1P1' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.151 ^^I^^I\includegraphics{Q1P1}
-                                   %这个图片怎么这么糊啊(┬┬﹏┬┬),到时候让csq重新截图给我
-I could not locate the file with any of these extensions:
-.pdf,.PDF,.ai,.AI,.png,.PNG,.jpg,.JPG,.jpeg,.JPEG,.jp2,.JP2,.jpf,.JPF,.bmp,.BMP
-,.ps,.PS,.eps,.EPS,.mps,.MPS
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+File: Q1P1.png Graphic file (type bmp)
+<Q1P1.png>
+File: Q1P2.png Graphic file (type bmp)
+<Q1P2.png>
 
 
-! LaTeX Error: File `Q1P2' not found.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.157 ...ncludegraphics[width=0.9\textwidth]{Q1P2}
-                                                  
-I could not locate the file with any of these extensions:
-.pdf,.PDF,.ai,.AI,.png,.PNG,.jpg,.JPG,.jpeg,.JPEG,.jp2,.JP2,.jpf,.JPF,.bmp,.BMP
-,.ps,.PS,.eps,.EPS,.mps,.MPS
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[3]
+File: Q1P4.png Graphic file (type bmp)
+<Q1P4.png>
 
 
-! LaTeX Error: File `Q1P3EDA1' not found.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.173 ...degraphics[width=0.9\textwidth]{Q1P3EDA1}
-                                                  
-I could not locate the file with any of these extensions:
-.pdf,.PDF,.ai,.AI,.png,.PNG,.jpg,.JPG,.jpeg,.JPEG,.jp2,.JP2,.jpf,.JPF,.bmp,.BMP
-,.ps,.PS,.eps,.EPS,.mps,.MPS
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[4]
+File: Q1P5.png Graphic file (type bmp)
+<Q1P5.png>
+File: Q1P6.png Graphic file (type bmp)
+<Q1P6.png>
+File: Q1P7.png Graphic file (type bmp)
+<Q1P7.png>
 
 
-! LaTeX Error: File `Q1EDA2' not found.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.181 ^^I^^I\includegraphics{Q1EDA2}
-                                    
-I could not locate the file with any of these extensions:
-.pdf,.PDF,.ai,.AI,.png,.PNG,.jpg,.JPG,.jpeg,.JPEG,.jp2,.JP2,.jpf,.JPF,.bmp,.BMP
-,.ps,.PS,.eps,.EPS,.mps,.MPS
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[5]
+File: Q1P8.png Graphic file (type bmp)
+<Q1P8.png>
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[6]
+File: Q1P9.png Graphic file (type bmp)
+<Q1P9.png>
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[7]
+File: Q1P10.png Graphic file (type bmp)
+<Q1P10.png>
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[8]
+File: Q1P10.png Graphic file (type bmp)
+<Q1P10.png>
+File: Q1P11.png Graphic file (type bmp)
+<Q1P11.png>
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[9]
+File: Q1P3EDA1.png Graphic file (type bmp)
+<Q1P3EDA1.png>
+File: Q1EDA2.png Graphic file (type bmp)
+<Q1EDA2.png>
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[10]
+File: Q1EDA3.png Graphic file (type bmp)
+<Q1EDA3.png>
+File: Q1EDA4.png Graphic file (type bmp)
+<Q1EDA4.png>
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[11]
+File: Q1EDA5.png Graphic file (type bmp)
+<Q1EDA5.png>
+File: Q1EDA6.png Graphic file (type bmp)
+<Q1EDA6.png>
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[12]
+File: Q1EDA7.png Graphic file (type bmp)
+<Q1EDA7.png>
+File: Q1EDA8.png Graphic file (type bmp)
+<Q1EDA8.png>
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[13]
+File: Q1EDA9.png Graphic file (type bmp)
+<Q1EDA9.png>
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[14] (c:/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+)
+! Misplaced alignment tab character &.
+<argument> Humanities &
+                        Social Sciences papers
+l.350 \printbibliography[title={References}]
+                                            
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
 
 
@@ -936,4 +1043,43 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[3
+[15]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[16] (./MBTI_rationality_discussion.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+ ***********
+
+
+LaTeX Warning: There were undefined references.
+
+Package rerunfilecheck Info: File `MBTI_rationality_discussion.out' has not cha
+nged.
+(rerunfilecheck)             Checksum: EA04503AE504CE894A32DAD623EF7946;2862.
+
+Package biblatex Warning: Please rerun LaTeX.
+(biblatex)                Page breaks have changed.
+
+Package logreq Info: Writing requests to 'MBTI_rationality_discussion.run.xml'.
+
+\openout1 = `MBTI_rationality_discussion.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 22486 strings out of 475796
+ 437409 string characters out of 5774033
+ 1487447 words of memory out of 5000000
+ 45200 multiletter control sequences out of 15000+600000
+ 562101 words of font info for 67 fonts, out of 8000000 for 9000
+ 36 hyphenation exceptions out of 8191
+ 79i,12n,93p,1628b,5052s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on MBTI_rationality_discussion.pdf (16 pages).
