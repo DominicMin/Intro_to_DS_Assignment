@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.5.31)  10 JUN 2025 14:50
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.5.31)  10 JUN 2025 16:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -984,6 +984,8 @@ File: Q1EDA5.png Graphic file (type bmp)
 <Q1EDA5.png>
 File: Q1EDA6.png Graphic file (type bmp)
 <Q1EDA6.png>
+File: Q1EDA7.png Graphic file (type bmp)
+<Q1EDA7.png>
 
 
 
@@ -994,8 +996,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [12]
-File: Q1EDA7.png Graphic file (type bmp)
-<Q1EDA7.png>
 File: Q1EDA8.png Graphic file (type bmp)
 <Q1EDA8.png>
 File: Q1EDA9.png Graphic file (type bmp)
@@ -1055,18 +1055,18 @@ ged.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `MBTI_rationality_discussion.out':
-(rerunfilecheck)             Before: EA04503AE504CE894A32DAD623EF7946;2862
-(rerunfilecheck)             After:  99F46D4D389E465EE14B5C7347D7879A;3095.
+(rerunfilecheck)             Before: 99F46D4D389E465EE14B5C7347D7879A;3095
+(rerunfilecheck)             After:  A3B514F0A3318717194E25BF96AA5DFC;3166.
 Package logreq Info: Writing requests to 'MBTI_rationality_discussion.run.xml'.
 
 \openout1 = `MBTI_rationality_discussion.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22490 strings out of 475796
- 437450 string characters out of 5774033
- 1486533 words of memory out of 5000000
- 45204 multiletter control sequences out of 15000+600000
+ 22491 strings out of 475796
+ 437461 string characters out of 5774033
+ 1486783 words of memory out of 5000000
+ 45205 multiletter control sequences out of 15000+600000
  562101 words of font info for 67 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  79i,12n,93p,1628b,5052s stack positions out of 10000i,1000n,20000p,200000b,200000s
