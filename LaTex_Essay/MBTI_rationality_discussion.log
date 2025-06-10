@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.5.31)  9 JUN 2025 12:23
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.5.31)  10 JUN 2025 14:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -998,6 +998,8 @@ File: Q1EDA7.png Graphic file (type bmp)
 <Q1EDA7.png>
 File: Q1EDA8.png Graphic file (type bmp)
 <Q1EDA8.png>
+File: Q1EDA9.png Graphic file (type bmp)
+<Q1EDA9.png>
 
 
 
@@ -1008,9 +1010,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [13]
-File: Q1EDA9.png Graphic file (type bmp)
-<Q1EDA9.png>
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1025,7 +1024,7 @@ File: lstlang1.sty 2024/09/23 1.10c listings language file
 ! Misplaced alignment tab character &.
 <argument> Humanities &
                         Social Sciences papers
-l.350 \printbibliography[title={References}]
+l.353 \printbibliography[title={References}]
                                             
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1043,43 +1042,33 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[15]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[16] (./MBTI_rationality_discussion.aux)
+[15] (./MBTI_rationality_discussion.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 
 
-LaTeX Warning: There were undefined references.
+Package rerunfilecheck Warning: File `MBTI_rationality_discussion.out' has chan
+ged.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
 
-Package rerunfilecheck Info: File `MBTI_rationality_discussion.out' has not cha
-nged.
-(rerunfilecheck)             Checksum: EA04503AE504CE894A32DAD623EF7946;2862.
-
-Package biblatex Warning: Please rerun LaTeX.
-(biblatex)                Page breaks have changed.
-
+Package rerunfilecheck Info: Checksums for `MBTI_rationality_discussion.out':
+(rerunfilecheck)             Before: EA04503AE504CE894A32DAD623EF7946;2862
+(rerunfilecheck)             After:  99F46D4D389E465EE14B5C7347D7879A;3095.
 Package logreq Info: Writing requests to 'MBTI_rationality_discussion.run.xml'.
 
 \openout1 = `MBTI_rationality_discussion.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22486 strings out of 475796
- 437409 string characters out of 5774033
- 1487447 words of memory out of 5000000
- 45200 multiletter control sequences out of 15000+600000
+ 22490 strings out of 475796
+ 437450 string characters out of 5774033
+ 1486533 words of memory out of 5000000
+ 45204 multiletter control sequences out of 15000+600000
  562101 words of font info for 67 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  79i,12n,93p,1628b,5052s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on MBTI_rationality_discussion.pdf (16 pages).
+Output written on MBTI_rationality_discussion.pdf (15 pages).
