@@ -102,7 +102,6 @@
 	%\addcontentsline{toc}{section}{Sample Document Title}
 	
 	\section{Introduction}
-	%为什么没有缩进。。。。
 	With the recent renewal of the MBTI's popularity, posts or analyses about it have become widespread on public platforms. It seems that MBTI has become a way people use at first meetings.
 	
 	The Myers-Briggs Type Indicator (MBTI) is a psychological framework primarily used to describe and measure personality traits by categorizing individuals into four dichotomous dimensions. In essence, it aims to reflect how people perceive the world and make decisions based on their internal experiences(\cite{yang2022research}).
@@ -165,7 +164,7 @@
 		\item Demographic and psychometric questionnaire answers (KPMIRU survey) 
 		\item Behavioral metrics such as posting frequency and topic keywords extracted from the tweets
 	\end{enumerate}
-	\section{dicussion 1} %改标题名字
+	\section{MBTI in Measurement} %改标题名字
 	\subsection{Data Cleaning and Pre-processing}
 	\subsubsection{Handling Missing Values}
 	\begin{enumerate}
@@ -323,18 +322,26 @@
 	Furthermore, in Figure 4.1.4, the correlation between other dimension pairs is low are nearly 0. This phenomenon supports that the dimensions are seemingly independent. While the correlation between S and T is +0.16, a bit larger than others, it indicates that someone who is Sensing(S) tends to be Thinking(T). In contrast, the correlation between S and P is -0.13, which indicates that those who are Sensing(S) tend to be Judging(J).
 	%先综述主题建模是什么——》数据清洗步骤必要性解释，结果展示-》主题建模步骤-》EDA
 	%intro需要解释objective的原因，将文章分为两个分析方向，解释两者之间的联系；MBTI的进一步解释有必要，写什么根据我后面EDA决定
-	\section{discussion 2} %改名字
+	\section{MBTI in Manifestation} 
+	In the previous section, we examined the statistical characteristics of MBTI distributions. In this section, we turn to the manifestation level by investigating how different MBTI types vary in their emotional expression and topic preferences on Twitter.
+	
+	
+	\subsection{VADER Sentimental Analysis}
+	\subsubsection{VADER}
+	Sentiment analysis, or opinion mining, is an active area of study in the field of natural language processing that analyzes people's opinions, sentiments, evaluations, attitudes, and emotions via the computational treatment of subjectivity in text. There are various approaches to sentimental analysis. In this assignment, we choose VADER(Valence Aware Dictionary for sEntiment Reasoning) as our tool to analyze the difference of different MBTI personalities in emotional expression due to its superiority in social media context(\cite{VADER}).
+	
+	VADER uses a pre-constructed system of "lexicon + weighted rules" to score each word in the input text and generate an overall sentiment score. For every given text, VADER first separates the text into words. Then, it rates the words from -4 to 4(4 as the most positive, and -4 as the most negative) according to its 7,500-entity valence lexicon. To increase the rating accuracy and distinguish between strength of emotions, VADER corrects the scores with a set of rules, which includes increasing or decreasing the score when identifying capitalization, negative and contrastive words. The details rating process is represented in the flow chart below.
+	%插入图片
+	\subsubsection{EDA}
+	
+	
+	\subsection{LDA Modeling}
+	To analyze the topic preference of different MBTI personalities, we use LDA modeling to 
 	
 	
 	
-	\subsection{Sample Equation}
-	Here is a displayed equation for illustration:
-	\[
-	E = mc^{2}
-	\]
 	
-	\section{Method}
-	Continue writing your content here.
+
 	\begin{python}
 def quicksort(arr):
 if len(arr) <= 1:

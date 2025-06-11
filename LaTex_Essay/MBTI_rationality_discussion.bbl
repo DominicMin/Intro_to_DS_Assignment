@@ -85,6 +85,51 @@
       \field{pages}{115\bibrangedash 138}
       \range{pages}{24}
     \endentry
+    \entry{VADER}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=b566bb471d34e64e4c863c07b944c04e}{%
+           family={Kiritchenko},
+           familyi={K\bibinitperiod},
+           given={Svetlana},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7db206795c9c6671b7060b6153bcdab6}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Xiaodan},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5c317b0155d096e6c58de689c4b55fef}{%
+           family={Mohammad},
+           familyi={M\bibinitperiod},
+           given={Saif},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d8ad49d8681ba9c6a0c73797548512f3}
+      \strng{fullhash}{cd6ad77fe72ea7abe3d25bb65eda5809}
+      \strng{fullhashraw}{cd6ad77fe72ea7abe3d25bb65eda5809}
+      \strng{bibnamehash}{cd6ad77fe72ea7abe3d25bb65eda5809}
+      \strng{authorbibnamehash}{cd6ad77fe72ea7abe3d25bb65eda5809}
+      \strng{authornamehash}{d8ad49d8681ba9c6a0c73797548512f3}
+      \strng{authorfullhash}{cd6ad77fe72ea7abe3d25bb65eda5809}
+      \strng{authorfullhashraw}{cd6ad77fe72ea7abe3d25bb65eda5809}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Journal of Artificial Intelligence Research (JAIR)}
+      \field{month}{08}
+      \field{title}{Sentiment Analysis of Short Informal Text}
+      \field{volume}{50}
+      \field{year}{2014}
+      \verb{doi}
+      \verb 10.1613/jair.4272
+      \endverb
+    \endentry
     \entry{yang2022research}{article}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=1b2a5d8854745b05e99cd277be3ef323}{%
@@ -217,6 +262,51 @@
       \field{year}{1997}
       \field{pages}{115\bibrangedash 138}
       \range{pages}{24}
+    \endentry
+    \entry{VADER}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=b566bb471d34e64e4c863c07b944c04e}{%
+           family={Kiritchenko},
+           familyi={K\bibinitperiod},
+           given={Svetlana},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7db206795c9c6671b7060b6153bcdab6}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Xiaodan},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5c317b0155d096e6c58de689c4b55fef}{%
+           family={Mohammad},
+           familyi={M\bibinitperiod},
+           given={Saif},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d8ad49d8681ba9c6a0c73797548512f3}
+      \strng{fullhash}{cd6ad77fe72ea7abe3d25bb65eda5809}
+      \strng{fullhashraw}{cd6ad77fe72ea7abe3d25bb65eda5809}
+      \strng{bibnamehash}{cd6ad77fe72ea7abe3d25bb65eda5809}
+      \strng{authorbibnamehash}{cd6ad77fe72ea7abe3d25bb65eda5809}
+      \strng{authornamehash}{d8ad49d8681ba9c6a0c73797548512f3}
+      \strng{authorfullhash}{cd6ad77fe72ea7abe3d25bb65eda5809}
+      \strng{authorfullhashraw}{cd6ad77fe72ea7abe3d25bb65eda5809}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Journal of Artificial Intelligence Research (JAIR)}
+      \field{month}{08}
+      \field{title}{Sentiment Analysis of Short Informal Text}
+      \field{volume}{50}
+      \field{year}{2014}
+      \verb{doi}
+      \verb 10.1613/jair.4272
+      \endverb
     \endentry
     \entry{yang2022research}{article}{}{}
       \name{author}{1}{}{%
