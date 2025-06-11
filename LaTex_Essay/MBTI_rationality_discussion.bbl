@@ -1,0 +1,289 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{apa/apasortcite//global/global/global}
+    \entry{boyle1995mbti}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6197bacf1e2f77a641059a3cc273aadf}{%
+           family={Boyle},
+           familyi={B\bibinitperiod},
+           given={Gregory\bibnamedelima J.},
+           giveni={G\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{6197bacf1e2f77a641059a3cc273aadf}
+      \strng{fullhash}{6197bacf1e2f77a641059a3cc273aadf}
+      \strng{fullhashraw}{6197bacf1e2f77a641059a3cc273aadf}
+      \strng{bibnamehash}{6197bacf1e2f77a641059a3cc273aadf}
+      \strng{authorbibnamehash}{6197bacf1e2f77a641059a3cc273aadf}
+      \strng{authornamehash}{6197bacf1e2f77a641059a3cc273aadf}
+      \strng{authorfullhash}{6197bacf1e2f77a641059a3cc273aadf}
+      \strng{authorfullhashraw}{6197bacf1e2f77a641059a3cc273aadf}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Humanities & Social Sciences papers}
+      \field{month}{03}
+      \field{title}{Myers-Briggs Type Indicator (MBTI): Some psychometric limitations}
+      \field{volume}{30}
+      \field{year}{1995}
+      \verb{doi}
+      \verb 10.1111/j.1742-9544.1995.tb01750.x
+      \endverb
+    \endentry
+    \entry{fleenor1997relationship}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=87f995364611c1759343ab5b9bc19479}{%
+           family={Fleenor},
+           familyi={F\bibinitperiod},
+           given={John\bibnamedelima W},
+           giveni={J\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Davies-Black Palo Alto, CA}%
+      }
+      \strng{namehash}{87f995364611c1759343ab5b9bc19479}
+      \strng{fullhash}{87f995364611c1759343ab5b9bc19479}
+      \strng{fullhashraw}{87f995364611c1759343ab5b9bc19479}
+      \strng{bibnamehash}{87f995364611c1759343ab5b9bc19479}
+      \strng{authorbibnamehash}{87f995364611c1759343ab5b9bc19479}
+      \strng{authornamehash}{87f995364611c1759343ab5b9bc19479}
+      \strng{authorfullhash}{87f995364611c1759343ab5b9bc19479}
+      \strng{authorfullhashraw}{87f995364611c1759343ab5b9bc19479}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Developing leaders: Research and applications in psychological type and leadership development}
+      \field{title}{The relationship between the MBTI and measures of personality and performance in management groups}
+      \field{year}{1997}
+      \field{pages}{115\bibrangedash 138}
+      \range{pages}{24}
+    \endentry
+    \entry{yang2022research}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1b2a5d8854745b05e99cd277be3ef323}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Yue},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Atlantis Press}%
+      }
+      \strng{namehash}{1b2a5d8854745b05e99cd277be3ef323}
+      \strng{fullhash}{1b2a5d8854745b05e99cd277be3ef323}
+      \strng{fullhashraw}{1b2a5d8854745b05e99cd277be3ef323}
+      \strng{bibnamehash}{1b2a5d8854745b05e99cd277be3ef323}
+      \strng{authorbibnamehash}{1b2a5d8854745b05e99cd277be3ef323}
+      \strng{authornamehash}{1b2a5d8854745b05e99cd277be3ef323}
+      \strng{authorfullhash}{1b2a5d8854745b05e99cd277be3ef323}
+      \strng{authorfullhashraw}{1b2a5d8854745b05e99cd277be3ef323}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{2022 7th International Conference on Social Sciences and Economic Development (ICSSED 2022)}
+      \field{title}{Research on the Application of MBTI in Organization}
+      \field{year}{2022}
+      \field{pages}{1751\bibrangedash 1754}
+      \range{pages}{4}
+    \endentry
+    \entry{zibran2007chi}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6cc9cd7e53d006df8afcbbb1d1d3a87f}{%
+           family={Zibran},
+           familyi={Z\bibinitperiod},
+           given={Minhaz\bibnamedelima Fahim},
+           giveni={M\bibinitperiod\bibinitdelim F\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{6cc9cd7e53d006df8afcbbb1d1d3a87f}
+      \strng{fullhash}{6cc9cd7e53d006df8afcbbb1d1d3a87f}
+      \strng{fullhashraw}{6cc9cd7e53d006df8afcbbb1d1d3a87f}
+      \strng{bibnamehash}{6cc9cd7e53d006df8afcbbb1d1d3a87f}
+      \strng{authorbibnamehash}{6cc9cd7e53d006df8afcbbb1d1d3a87f}
+      \strng{authornamehash}{6cc9cd7e53d006df8afcbbb1d1d3a87f}
+      \strng{authorfullhash}{6cc9cd7e53d006df8afcbbb1d1d3a87f}
+      \strng{authorfullhashraw}{6cc9cd7e53d006df8afcbbb1d1d3a87f}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Department of Computer Science, University of Calgary, Alberta, Canada}
+      \field{number}{1}
+      \field{title}{Chi-squared test of independence}
+      \field{volume}{1}
+      \field{year}{2007}
+      \field{pages}{1\bibrangedash 7}
+      \range{pages}{7}
+    \endentry
+  \enddatalist
+  \datalist[entry]{apa/global//global/global/global}
+    \entry{boyle1995mbti}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6197bacf1e2f77a641059a3cc273aadf}{%
+           family={Boyle},
+           familyi={B\bibinitperiod},
+           given={Gregory\bibnamedelima J.},
+           giveni={G\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{6197bacf1e2f77a641059a3cc273aadf}
+      \strng{fullhash}{6197bacf1e2f77a641059a3cc273aadf}
+      \strng{fullhashraw}{6197bacf1e2f77a641059a3cc273aadf}
+      \strng{bibnamehash}{6197bacf1e2f77a641059a3cc273aadf}
+      \strng{authorbibnamehash}{6197bacf1e2f77a641059a3cc273aadf}
+      \strng{authornamehash}{6197bacf1e2f77a641059a3cc273aadf}
+      \strng{authorfullhash}{6197bacf1e2f77a641059a3cc273aadf}
+      \strng{authorfullhashraw}{6197bacf1e2f77a641059a3cc273aadf}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Humanities & Social Sciences papers}
+      \field{month}{03}
+      \field{title}{Myers-Briggs Type Indicator (MBTI): Some psychometric limitations}
+      \field{volume}{30}
+      \field{year}{1995}
+      \verb{doi}
+      \verb 10.1111/j.1742-9544.1995.tb01750.x
+      \endverb
+    \endentry
+    \entry{fleenor1997relationship}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=87f995364611c1759343ab5b9bc19479}{%
+           family={Fleenor},
+           familyi={F\bibinitperiod},
+           given={John\bibnamedelima W},
+           giveni={J\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Davies-Black Palo Alto, CA}%
+      }
+      \strng{namehash}{87f995364611c1759343ab5b9bc19479}
+      \strng{fullhash}{87f995364611c1759343ab5b9bc19479}
+      \strng{fullhashraw}{87f995364611c1759343ab5b9bc19479}
+      \strng{bibnamehash}{87f995364611c1759343ab5b9bc19479}
+      \strng{authorbibnamehash}{87f995364611c1759343ab5b9bc19479}
+      \strng{authornamehash}{87f995364611c1759343ab5b9bc19479}
+      \strng{authorfullhash}{87f995364611c1759343ab5b9bc19479}
+      \strng{authorfullhashraw}{87f995364611c1759343ab5b9bc19479}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Developing leaders: Research and applications in psychological type and leadership development}
+      \field{title}{The relationship between the MBTI and measures of personality and performance in management groups}
+      \field{year}{1997}
+      \field{pages}{115\bibrangedash 138}
+      \range{pages}{24}
+    \endentry
+    \entry{yang2022research}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1b2a5d8854745b05e99cd277be3ef323}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Yue},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Atlantis Press}%
+      }
+      \strng{namehash}{1b2a5d8854745b05e99cd277be3ef323}
+      \strng{fullhash}{1b2a5d8854745b05e99cd277be3ef323}
+      \strng{fullhashraw}{1b2a5d8854745b05e99cd277be3ef323}
+      \strng{bibnamehash}{1b2a5d8854745b05e99cd277be3ef323}
+      \strng{authorbibnamehash}{1b2a5d8854745b05e99cd277be3ef323}
+      \strng{authornamehash}{1b2a5d8854745b05e99cd277be3ef323}
+      \strng{authorfullhash}{1b2a5d8854745b05e99cd277be3ef323}
+      \strng{authorfullhashraw}{1b2a5d8854745b05e99cd277be3ef323}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{2022 7th International Conference on Social Sciences and Economic Development (ICSSED 2022)}
+      \field{title}{Research on the Application of MBTI in Organization}
+      \field{year}{2022}
+      \field{pages}{1751\bibrangedash 1754}
+      \range{pages}{4}
+    \endentry
+    \entry{zibran2007chi}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6cc9cd7e53d006df8afcbbb1d1d3a87f}{%
+           family={Zibran},
+           familyi={Z\bibinitperiod},
+           given={Minhaz\bibnamedelima Fahim},
+           giveni={M\bibinitperiod\bibinitdelim F\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{6cc9cd7e53d006df8afcbbb1d1d3a87f}
+      \strng{fullhash}{6cc9cd7e53d006df8afcbbb1d1d3a87f}
+      \strng{fullhashraw}{6cc9cd7e53d006df8afcbbb1d1d3a87f}
+      \strng{bibnamehash}{6cc9cd7e53d006df8afcbbb1d1d3a87f}
+      \strng{authorbibnamehash}{6cc9cd7e53d006df8afcbbb1d1d3a87f}
+      \strng{authornamehash}{6cc9cd7e53d006df8afcbbb1d1d3a87f}
+      \strng{authorfullhash}{6cc9cd7e53d006df8afcbbb1d1d3a87f}
+      \strng{authorfullhashraw}{6cc9cd7e53d006df8afcbbb1d1d3a87f}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Department of Computer Science, University of Calgary, Alberta, Canada}
+      \field{number}{1}
+      \field{title}{Chi-squared test of independence}
+      \field{volume}{1}
+      \field{year}{2007}
+      \field{pages}{1\bibrangedash 7}
+      \range{pages}{7}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
