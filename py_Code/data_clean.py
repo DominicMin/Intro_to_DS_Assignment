@@ -11,6 +11,11 @@
 import pandas as pd
 import numpy as np
 
+# Modules to read/write external files,etc.
+import json
+import pickle
+import copy
+
 # Modules for NLP
 import re # Regular Expression
 import string
@@ -25,15 +30,14 @@ my_nltk_path="Data"
 nltk.data.path.append(my_nltk_path)
 import textstat # Evaluate text readability
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer # Evaluate text emotion
-from gensim.parsing.preprocessing import STOPWORDS
-from gensim.models.phrases import Phrases, Phraser
+STOPWORDS=pickle.load(
+    open("Data/gensim_stopwords.pkl",'rb')
+)
+
 stop_words=set()
 stop_words.update(STOPWORDS)
 
-# Modules to read/write external files,etc.
-import json
-import pickle
-import copy
+
 
 # Language detection 
 import fasttext
@@ -53,6 +57,23 @@ MBTI_types = [
     'estp', 'esfp', 'enfp', 'entp', 
     'estj', 'esfj', 'enfj', 'entj'
     ]
+
+# Data loading and spliting 
+raw_data=pd.read_csv("Data\\twitter_MBTI.csv",encoding='utf-8')
+raw_data.drop(columns="Unnamed: 0",inplace=True)
+raw_data.columns=["posts","type"]
+
+# %%
+raw_data.head(20)
+
+# %%
+raw_data["type"].value_counts()
+
+# %% [markdown]
+# #### Sentence splitting
+
+# %%
+
 
 # %% [markdown]
 # ### Create a class to clean data
@@ -216,39 +237,20 @@ class Data_to_Clean:
         # here all posts are flatten
         self.data["posts"]=self.data["posts"].apply(process_totokens)
     
-    # Apply N-gram
-    def apply_ngram(self,phraser):
-        def process_apply_ngram(flatten_post):
-            # construct N-gram
-            post_with_ngram=list(phraser[flatten_post])
-            # rebuild sentence structure
-            post_rebuild=[]
-            new_sentence=[]
-            for word in post_with_ngram:
-                if word=='@SENTENCE-END':
-                    if new_sentence:
-                        post_rebuild.append(new_sentence)
-                    new_sentence=[]
-                else:
-                    new_sentence.append(word)
-            if new_sentence:
-                post_rebuild.append(new_sentence)
-            return post_rebuild
-        self.data["posts"]=self.data["posts"].apply(process_apply_ngram)
-       
+    
     # Remove stopwords in tokenized text
-    def remove_stopwords(self):
+    def remove_stopwords(self,stop_words_set):
         def process_remove_stopwords(post):
             filtered_post=[]
             for sentence in post:
                 if isinstance(sentence,list):
                     filtered_sentence=[]
                     for word in sentence:
-                        if word not in stop_words:
+                        if word not in stop_words_set:
                             filtered_sentence.append(word)
                     filtered_post.append(filtered_sentence)
                 else:
-                    if sentence not in stop_words:
+                    if sentence not in stop_words_set:
                         filtered_post.append(sentence)
             return filtered_post
         self.data["posts"]=self.data["posts"].apply(process_remove_stopwords)
@@ -289,11 +291,35 @@ class Data_to_Clean:
                     complete_post.extend(sentence)
             return complete_post
         self.data["posts"]=self.data["posts"].apply(process_concatenate_post)
-        
+
+    def drop_non_english(self,level):
+        '''
+        To enhance prediction accuracy:
+        - sentence must be long
+        - remain English punctuation
+        - try to convert to lower case and try again
+        '''
+        def process_drop(post):
+            filtered_post=[]
+            for sentence in post:
+                normalized_sentence=re.sub(r'\s+', ' ', sentence)
+                if len(normalized_sentence.split())<6:
+                    filtered_post.append(normalized_sentence)
+                    # for very short sentence we won't predict
+                else:
+                    lang=lang_model.predict(normalized_sentence)
+                    if lang[0][0]=='__label__en' and lang[1][0]>level:
+                        filtered_post.append(normalized_sentence)
+                    else:
+                        lang=lang_model.predict(normalized_sentence.lower())
+                        if lang[0][0]=='__label__en' and lang[1][0]>level:
+                            filtered_post.append(normalized_sentence)
+            return filtered_post
+        self.data["posts"]=self.data["posts"].apply(process_drop)    
     
 
 # %% [markdown]
-# ### Create a derived class to analysis data
+# ### Create a derived class to analyze data
 
 # %%
 class Data_to_Analyze(Data_to_Clean):
@@ -371,6 +397,7 @@ class Data_to_Analyze(Data_to_Clean):
         self.basic_identities["ave_reading_ease"]=ave(self.basic_identities["reading_ease"])
         self.basic_identities["GF_index"]=GF_idx
         self.basic_identities["ave_GF_index"]=ave(self.basic_identities["GF_index"])
+    
     @staticmethod
     def concatenate_full_post(post):
                 filtered_post=[sentence for sentence in post if not sentence.isspace()]
@@ -394,238 +421,4 @@ class Data_to_Analyze(Data_to_Clean):
         self.data["vader_score"]=self.data["posts"].apply(process_vader_score)
         ave_score_dict(overall_vader_score,len(self.data["posts"]))
         self.basic_identities["overall_vader_score"]=overall_vader_score
-    
-
-    # Locate string to translate
-    def locate_str_to_translate(self):
-        result=[]
-        for i in tqdm(self.data.index,desc="Locating strings of other languages..."):
-            for j in range(len(self.data.loc[i,"posts"])):
-                sentence=self.data.loc[i,"posts"][j]
-                if len(sentence.split())> 8:
-                    lang_prediction=lang_model.predict(
-                        re.sub(r'\s+', ' ', sentence).strip(),
-                        k=1
-                    )
-                    if lang_prediction[0][0]!="__label__en" and lang_prediction[1][0]>0.98:
-                        result.append((i,j,re.sub(
-                            pattern=r"__\w+__",
-                            repl='',
-                            string=lang_prediction[0][0]
-                        )))
-        self.locations=result
-        with open(f"Data/{self.basic_identities["type"]}_translate_location.pkl","wb") as f:
-            pickle.dump(result,f)
-    
-
-    def drop_non_english(self,level):
-        '''
-        To enhance prediction accuracy:
-        - sentence must be long
-        - remain English punctuation
-        - try to convert to lower case and try again
-        '''
-        def process_drop(post):
-            filtered_post=[]
-            for sentence in post:
-                normalized_sentence=re.sub(r'\s+', ' ', sentence)
-                if len(normalized_sentence.split())<6:
-                    filtered_post.append(normalized_sentence)
-                    # for very short sentence we won't predict
-                else:
-                    lang=lang_model.predict(normalized_sentence)
-                    if lang[0][0]=='__label__en' and lang[1][0]>level:
-                        filtered_post.append(normalized_sentence)
-                    else:
-                        lang=lang_model.predict(normalized_sentence.lower())
-                        if lang[0][0]=='__label__en' and lang[1][0]>level:
-                            filtered_post.append(normalized_sentence)
-            return filtered_post
-        self.data["posts"]=self.data["posts"].apply(process_drop)
-
-# %% [markdown]
-# ### Construct data clean pipeline 
-
-# %%
-def analyze_data_p1(TYPE):
-    data=Data_to_Analyze(type=TYPE,source=raw_data)
-    data.remove_url()
-    data.remove_mention_and_tag()
-
-    # Some features like text readability need to be collected BEFORE the following cleaning procedures
-    # Otherwise, they are NOT accurate
-    data.get_sentence_quantity()
-    data.get_word_count()
-    data.get_upper_ratio()
-    data.get_readability()
-    data.get_vader_score()
-
-    # Continue to clean the data
-    data.remove_emoji()
-    data.remove_whitespace()
-    data.drop_non_english(0.75)
-    data.expand_contractions()
-    data.tolower()
-    data.remove_punct()
-    data.remove_whitespace()
-    data.totokens()
-    data.post_lemmatize()
-    
-    with open(f"Data\\cleaned_data\\p1\\{TYPE}_cleaned.pkl","wb") as f:
-        pickle.dump(data,f)
-
-def analyze_data_p2(TYPE):
-    with open(f"Data/cleaned_data/p1/{TYPE}_cleaned.pkl",'rb') as f:
-        data=pickle.load(f)
-    data.remove_stopwords()
-    data.concatenate_post()
-    with open(f"Data/cleaned_data/{TYPE}_cleaned.pkl","wb") as f:
-        pickle.dump(data,f)
-
-# %% [markdown]
-# ### Main execution block
-
-if __name__ == "__main__":
-    # Data loading and spliting 
-    raw_data=pd.read_csv("Data\\twitter_MBTI.csv",encoding='utf-8')
-    raw_data.drop(columns="Unnamed: 0",inplace=True)
-    raw_data.columns=["posts","type"]
-
-    # %%
-    raw_data.head(20)
-
-    # %%
-    raw_data["type"].value_counts()
-
-    # %% [markdown]
-    # #### Sentence splitting
-
-    # %%
-    for i in raw_data.index:
-        raw_data.loc[i,"posts"]=raw_data.loc[i,"posts"].split("|||")
-
-    # Analyze posts from all MBTI types
-    for T in tqdm(MBTI_types):
-        analyze_data_p1(T)
-
-    # %% [markdown]
-    # #### Add custom stopwords
-
-    # %%
-    with open("custom_stopwords_new.json","r") as f:
-        custom_stopwords=json.load(f)
-    stop_words.update(custom_stopwords)
-    stop_words
-
-    # %%
-    len(stop_words)
-
-    # %%
-    for T in tqdm(MBTI_types):
-        analyze_data_p2(T)
-
-    # %% [markdown]
-    # #### Train N-gram phraser model
-
-    # %%
-    # bigarm_model=Phrases(all_posts,min_count=5,threshold=100)
-    # bigram_phraser=Phraser(bigarm_model)
-
-    # %%
-    # with open("Data/phrases.json","w") as f:
-    #     json.dump(bigarm_model.export_phrases(),f)
-
-    # %% [markdown]
-    # #### Demonstration of each step
-
-    # %%
-    import matplotlib.pyplot as plt
-    result={}
-    for i in np.arange(0,1,0.15):
-        result[f"{i:.2f}"]=0
-        infp=Data_to_Analyze('infp',raw_data)
-        infp.remove_mention_and_tag()
-        infp.remove_emoji()
-        infp.remove_url()
-        infp.remove_whitespace()
-        infp.drop_non_english(i)
-        for j in infp.data.index:
-            result[f"{i:.2f}"]+=len(infp.data.loc[j,"posts"])
-    result=pd.Series(result)
-    plt.plot(result.index,result.values,label="Remaining Sentence Quantity")
-    plt.xlabel("Filter Level")
-    plt.ylabel("Sentence Quantity")
-    plt.legend()
-    plt.show()
-
-    # %%
-    infp=Data_to_Analyze('infp',raw_data)
-    infp.remove_url()
-    infp.remove_mention_and_tag()
-    infp.remove_emoji()
-    infp.remove_whitespace()
-    infp.remove_punct()
-    test=infp.data.loc[0,"posts"]
-
-    # %%
-    ans=0
-    for sentence in test:
-        ans+=len(sentence.split(" "))
-    ans
-
-    # %%
-    infp.drop_non_english(0.75)
-    infp.data.head(30)
-
-    # %%
-    infp.expand_contractions()
-    infp.data.head(30)
-
-    # %%
-    infp.tolower()
-    infp.data.head(30)
-
-
-    # %%
-    infp.remove_punct()
-    infp.data.head(30)
-
-    # %%
-    infp.totokens()
-    infp.data.head(30)
-
-    # %%
-    infp.post_lemmatize()
-    infp.data.head(30)
-
-
-    # %%
-    infp.remove_stopwords()
-    infp.data.head(30)
-
-    # %%
-    infp.remove_whitespace()
-    infp.data.head(30)
-
-    # %% [markdown]
-    # ### Consider adding a new dataset
-
-    # %%
-    extra_data=pd.read_csv("Data\MBTI_500.csv",encoding='utf-8')
-    extra_data
-
-    # %%
-    extra_data['posts']=extra_data['posts'].apply(lambda x:x.split())
-
-    # %%
-    test=extra_data.loc[0,'posts']
-    test
-
-    # %%
-    for T in tqdm(MBTI_types):
-        data=Data_to_Analyze(type=T,source=extra_data)
-        data.remove_stopwords()
-        with open(f'Data/cleaned_data/extra/{T}_extra.pkl','wb') as f:
-            pickle.dump(data,f)
-
 
