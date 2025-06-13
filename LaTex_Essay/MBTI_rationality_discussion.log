@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.5.31)  10 JUN 2025 16:04
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.5.31)  11 JUN 2025 23:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -839,13 +839,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 ]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 133.
+(Font)              <12> on input line 132.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 133.
+(Font)              <8> on input line 132.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 133.
+(Font)              <6> on input line 132.
 
-Overfull \hbox (7.61218pt too wide) in paragraph at lines 141--142
+Overfull \hbox (7.61218pt too wide) in paragraph at lines 140--141
 []\TU/TimesNewRoman(0)/m/n/12 Questionnaire responses compiled and shared on Ka
 ggle by Pmenshih([][]$[][][][][] [] [] [] [][][] [] [][][][][][] []
  []
@@ -1021,10 +1021,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [14] (c:/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[15]
 ! Misplaced alignment tab character &.
 <argument> Humanities &
                         Social Sciences papers
-l.353 \printbibliography[title={References}]
+l.360 \printbibliography[title={References}]
                                             
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1042,33 +1051,26 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[15] (./MBTI_rationality_discussion.aux)
+[16] (./MBTI_rationality_discussion.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-Package rerunfilecheck Warning: File `MBTI_rationality_discussion.out' has chan
-ged.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `MBTI_rationality_discussion.out':
-(rerunfilecheck)             Before: 99F46D4D389E465EE14B5C7347D7879A;3095
-(rerunfilecheck)             After:  A3B514F0A3318717194E25BF96AA5DFC;3166.
+Package rerunfilecheck Info: File `MBTI_rationality_discussion.out' has not cha
+nged.
+(rerunfilecheck)             Checksum: 2C305CF6E9159F02927DC6A94C033D05;3538.
 Package logreq Info: Writing requests to 'MBTI_rationality_discussion.run.xml'.
 
 \openout1 = `MBTI_rationality_discussion.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22491 strings out of 475796
- 437461 string characters out of 5774033
- 1486783 words of memory out of 5000000
- 45205 multiletter control sequences out of 15000+600000
+ 22498 strings out of 475796
+ 437677 string characters out of 5774033
+ 1483255 words of memory out of 5000000
+ 45212 multiletter control sequences out of 15000+600000
  562101 words of font info for 67 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  79i,12n,93p,1628b,5052s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on MBTI_rationality_discussion.pdf (15 pages).
+Output written on MBTI_rationality_discussion.pdf (16 pages).
