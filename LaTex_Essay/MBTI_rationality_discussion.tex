@@ -18,6 +18,7 @@
 \usepackage{float}
 \usepackage{indentfirst}
 \usepackage{graphicx}
+\usepackage{amsmath}
 \usepackage{adjustbox}
 \usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue,citecolor=black]{hyperref}
 \usepackage[backend=biber,style=apa]{biblatex}
@@ -446,7 +447,7 @@ def optimize_topic_num(
 	After a few trials, we find that 19 topics gives us the highest c\_v coherence score. 
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.5\textwidth]{Q2CV} 
+		\includegraphics[width=0.5\textwidth]{Q2CV1} 
 		\caption{\centering Coherence scores for topic numbers 19 to 24. The highest score is observed at 19 topics, suggesting it as the optimal choice for this model.}		
 	\end{figure}
 	
@@ -622,7 +623,7 @@ lda_model,all_original_text=load_lda_data()
 mbti_cleaned_data=load_mbti_data()
 		\end{python}
 	
-	To better interpret topics and detect patterns in the data, we construct a dedicated class LDATopicAnalyzer, which integrates the LDA model with the MBTI-annotated dataset. This class performs several key functions: it transforms input texts into bag-of-words representations, computes topic distributions for each document, and aggregates these distributions by MBTI type to observe group-level thematic tendencies. It also supports generating interactive visualizations through pyLDAvis, which is created and saved to html. Furthermore, it provides tools to extract representative keywords per topic and optionally identify and exclude noise topics that carry little interpretive value. 
+	To better interpret topics and detect patterns in the data, we construct a class LDATopicAnalyzer, which integrates the LDA model with the MBTI-annotated dataset. This class performs several key functions: it transforms input texts into bag-of-words representations, computes topic distributions for each document, and groups these distributions by MBTI type to observe group-level thematic tendencies. It also supports generating interactive visualizations through pyLDAvis, which is created and saved to html. Furthermore, it provides tools to extract representative keywords per topic and optionally identify and exclude noise topics that carry little interpretive value. 
 	\begin{python}
 # Create a class for LDA visualization
 class LDATopicAnalyzer:
@@ -747,8 +748,17 @@ vis
 	By selecting different topics and adjusting the value of $\lambda$, we can summarize the central theme of each topic, determine whether it is a noise topic, and assess its degree of semantic coherence.
 	
 	Take topic 12 as an example, when $\lambda$ is set to 0, the most relevant terms—such as trump, biden, republican, democrat, congress, and abortion—are highly distinctive and strongly associated with U.S. political discourse. These terms are not only topically specific but also exclusive to this topic, suggesting a focused and meaningful theme centered around American politics, government institutions, and social issues.	In contrast, when $\lambda$ is increased to 1, the top terms—such as state, country, child, gun, and law—shift toward higher-frequency words within the topic. Although some of these terms are more general, they still retain political relevance and semantic consistency with the topic’s core, indicating that the theme is robust across different relevance metrics. In conclusion, the presence of consistently interpretable and contextually appropriate terms at both extremes of the $\lambda$ scale demonstrates that topic 13 exhibits a relatively high degree of semantic coherence. The lack of function words, formatting artifacts, or off-topic vocabulary suggests that this is not a noise topic, but rather a well-defined and meaningful cluster within the corpus.
-	
-	By applying this method to all the topic, we can conclude the following topic modeling result:
+	\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.9\textwidth]{Q2r0} 
+			\caption{\centering HTML page with Topic 12 selected and $\lambda$=0}		
+	\end{figure}
+	\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.9\textwidth]{Q2r1} 
+			\caption{\centering HTML page with Topic 12 selected and $\lambda$=0}		
+	\end{figure}
+	By applying this method to all the topics, we can conclude the following topic modeling result:
 	\begin{itemize}
 	\item High semantic coherence - 8 topics:
 	
@@ -796,7 +806,7 @@ vis
 	
 	Interestingly, when linking the interpreted topics to their corresponding bubbles, we observe that although Topic 2 (Academic/Business/Personal Development) and Topic 12 (Politics/Social Issues) show considerable overlap in the Intertopic Distance Map, they are not semantically similar. This mismatch occurs because high-dimensional topic data is projected onto a two-dimensional space. 
 	%需要写噪音去除
-	
+	%The noise topics Topic 13 and Topic 18 should be excluded in further analysis and clustering. However, due to the limitation of our dataset, if we exclude such a big topic as Topic 18, 
 	
 	\subsubsection{Topic Distribution}
 	We begin by calculating and visualizing topic distribution.
@@ -831,6 +841,8 @@ display(topic_dist_df.head())
 		\centering
 		\includegraphics[width=0.9\textwidth]{Q2hmap} 	
 	\end{figure}
+	
+	The heatmap provides an intuitive visual indication of topic popularity. Specifically, Topics 1(Daily Life and traveling), 2(Academic/Business/Personal Development), 15(K-pop Industry General), and 17(Anime/Manga/Fan Culture) exhibit darker red shades, suggesting they are more frequently discussed. A more rigorous, quantitative analysis of topic popularity will be presented further on.
 	
 	To assist with our interpretation with the heatmap, we calculate the overall popularity of each topic.
 	\begin{python}
@@ -867,14 +879,10 @@ create_topic_wordcloud_summary(topic_words,topic_dist_df)
 	 		\includegraphics[width=0.5\textwidth]{Q2topsum} 	
 	 \end{figure}
 	 
-	 With the aid of the summary statistics, we interpret the heatmap and draw conclusions from two analytical perspectives.
-	 
-	 
-	
-	Analyzing from the perspective of individual topics, we can find distinct MBTI engagement patterns across different semantic domains. 
+	 With the aid of the summary statistics, we can find distinct MBTI engagement patterns across different semantic domains. 
 	\begin{itemize}
 	\item Topic 15 (K-pop fandom activities): characterized by group debuts, comebacks, and concerts; demonstrates strong engagement among ISFP, ISFJ, and ESFP types, underscoring the intersection of sensory enjoyment and emotional engagement.
-	\item Topic 14 (lightweight, emotionally-driven daily expression): resonates with SP types—particularly SFPs and STPs—who prioritize spontaneity and immediate experiential sharing.
+	\item Topic 14 (lightweight, emotionally-driven daily expression): resonates with SP types who prioritize spontaneity and immediate experiential sharing.
 	\item Topic 7 (sensory experiences related to food and comfort): emphasizes fast food, coffee, and cream, aligning with ISTP and ESTP preferences for direct sensory satisfaction.
 	\item Topic 17 (strategic, abstract, and fandom-oriented discussions): involves anime, manga, and fan fiction; attracts ENTP, INFP, and ESTP types, indicating alignment with analytical and imaginative discourse.
 	\item Topic 2 (experiential and intellectual reflections): appeals to INTJ, ENTJ, and INFJ types, reflecting their preference for profound, thoughtful, and self-reflective content.
@@ -885,17 +893,170 @@ create_topic_wordcloud_summary(topic_words,topic_dist_df)
 	\item Topic 4 (Stranger Things franchise): references characters like Eddie and Steve; shows engagement from ISTP, ENTP, and INFP types, indicating analytical and introspective affinities.
 	\end{itemize}
 	
-	Analyzing from the perspective of MBTI functional groups, clearer behavioral and cognitive preferences emerge.
-	\begin{itemize}
-	\item NF types consistently gravitate toward emotionally and symbolically rich discussions (Topics 1, 2), emphasizing their values-driven communication style and expressive tendencies. 
-	\item SP types distinctly favor immediate experiential and sensory-focused topics (Topics 7, 14, 15), indicative of their present-oriented, sensory-driven inclinations. 
-	\item NT types predominantly engage in abstract reasoning, strategic analyses, and fandom discussions that encourage complex intellectual engagement (Topics 2, 5, 17).
-	\item SJ types display balanced interests, engaging prominently with mainstream cultural phenomena and structured, community-centric discussions (Topics 1, 10, 17), reflecting their preference for structured interaction, practical feasibility, and communal harmony.
-	\end{itemize}
+	Having observed engagement patterns of individual MBTI types, we compare the topic preference patterns of different MBTI groups.
+	\begin{python}
+# Create MBTI dimension topic preference analysis
+def analyze_mbti_dimensions(topic_dist_df,mbti_dimensions=mbti_dimensions):
+    """Analyze topic preferences for MBTI four dimensions"""
+    dimension_analysis={}
+    
+    for dim,types in mbti_dimensions.items():
+        # Calculate average topic distribution for this dimension type
+        dim_types_in_data=[t for t in types if t in topic_dist_df.index] # t is a single type
+        dimension_analysis[dim]=topic_dist_df.loc[dim_types_in_data].mean() # mean of the topic distribution for this dimension/group type
+    
+    return pd.DataFrame(dimension_analysis)
+
+dimension_pairs=[('E','I'),('S','N'),('T','F'),('J','P')]
+pair_names=['Extrovert vs Introvert','Sense vs Intuition','Thinking vs Feeling','Judging vs Perceiving']
+    
+
+def create_dimension_comparison(dimension_df,file_name,dimension_pairs=dimension_pairs,pair_names=pair_names,comment=None):
+    """Create MBTI dimension topic preference comparison chart"""
+    fig,axes=plt.subplots(int(len(dimension_pairs)/2),2,figsize=(16,6*int(len(dimension_pairs)/2)))
+    axes=axes.flatten()
+        
+    for i,((dim1,dim2),pair_name) in enumerate(zip(dimension_pairs,pair_names)):
+        if dim1 in dimension_df.columns and dim2 in dimension_df.columns:
+            # Calculate difference
+            diff=dimension_df[dim1]-dimension_df[dim2]
+            
+            # Create bar chart
+            x_pos=range(len(diff))
+            colors=['red' if x < 0 else 'blue' for x in diff]
+            
+            axes[i].bar(x_pos,diff,color=colors,alpha=0.7)
+            axes[i].axhline(y=diff.apply(abs).quantile(q=0.85),color='red',linestyle='--',alpha=0.3,label='85% Quantile Line')
+            axes[i].axhline(y=-diff.apply(abs).quantile(q=0.85),color='red',linestyle='--',alpha=0.3)
+            axes[i].axhline(y=0,color='black',linestyle='-',alpha=0.3)
+            axes[i].set_title(f'{pair_name} Diff in Topic Preference',fontsize=12,fontweight='bold')
+            axes[i].set_xlabel('Topic')
+            axes[i].set_ylabel(f'{dim1} - {dim2} Preference Difference')
+            axes[i].set_xticks(x_pos)
+            axes[i].set_xticklabels([j for j in list(topic_dist_df.columns)],rotation=45)
+            axes[i].grid(True,alpha=0.3)
+            axes[i].legend()
+    fig.suptitle("MBTI Group Topic Preference Comparison",fontsize=16,fontweight='bold',y=1)
+    plt.tight_layout()
+    plt.figtext(0.5, 0.02,comment,ha='center',fontsize=10)
+    plt.savefig(f'output/lda_model/lda_{model_id}/visualization/{file_name}.png',dpi=300,bbox_inches='tight')
+    plt.savefig(f'final_output/{file_name}_drop13_18.png',dpi=300,bbox_inches='tight')
+    plt.show()
+
+
+dimension_df=analyze_mbti_dimensions(topic_dist_df)
+print("MBTI dimension topic preference analysis:")
+display(dimension_df.head())
+
+# create_dimension_comparison(dimension_df,"mbti_dimension_comparison")
+group_pairs=[
+            ('analysts','diplomats'),
+            ('sentinels','explorers'),
+            ('sentinels','diplomats'),
+            ('explorers','diplomats'),
+            ('sentinels','analysts'),
+            ('explorers','analysts')
+             ]
+group_names=['Analysts vs Diplomats',
+             'Sentinels vs Explorers',
+             'Sentinels vs Diplomats',
+             'Explorers vs Diplomats',
+             'Sentinels vs Analysts',
+             'Explorers vs Analysts'
+             ]
+
+group_df=analyze_mbti_dimensions(topic_dist_df,mbti_groups)
+create_dimension_comparison(group_df,"mbti_group_comparison",group_pairs,group_names)
+	\end{python}
+	\begin{figure}[H]
+			\centering
+			\includegraphics[width=1\textwidth]{Q2grouppre} 	
+	\end{figure}
 	
-	\subsubsection{Topic Preference between MBTI Dimensions and Groups}
+	For a unified comparison, we set the standard of significantly different as any absolute topic-preference gap that surpasses the 85th-percentile threshold, which is indicated by the red dashed line in each subplot.
+	
+	From these 6 comparisons we can come up with the following conclusions:
+	\begin{enumerate}
+	\item Analysts show a clear surplus of discussion in the “Gender / Mental-Health” and “Politics / Social Issues” topics, whereas Diplomats contribute markedly less to these threads. This suggests that the NT temperaments are more inclined toward idea-driven or policy-oriented debates, while the NF group devotes its energy to lighter, experience-based conversations such as travel logs and casual fandom chatter.
+	\item When Sentinels are compared with Explorers, the former post more frequently about day-to-day planning, travel itineraries, and the buying or trading of collectibles. Explorers, in contrast, engage less with these logistics-heavy themes and more with personal identity talk. This difference implies that SJ personalities favour order and tangible exchanges, while SP personalities gravitate toward spontaneous self-expression.
+	\item Sentinels dominate K-pop industry news and merchandise exchange, yet they underperform on topics related to academic or personal growth. Therefore, the data indicate a Sentinel preference for operational or execution-oriented content, whereas Diplomats continue to focus on introspection and self-development narratives.
+	\item Explorers outpace Diplomats in discussions about ENHYPEN fandom, the game Genshin Impact, and LGBTQ identity issues, but fall behind in travel diaries, study tips, and political conversations. This result reinforces the notion that SP types pursue sensory entertainment and identity exploration, whereas NF types lean toward reflective or civic-minded themes.
+	\item Sentinels tweet far more about mainstream idols such as ENHYPEN and BTS, while Analysts turn their attention to academically oriented or self-improvement threads. We conclude that SJ users are deeply involved in collective fan activities, whereas NT users remain focused on knowledge and analytical depth.
+	\item Explorers lead Analysts in anime and manga chatter, yet they post significantly less about academic and political issues. The evidence points to an SP preference for leisure-centred pop-culture content, contrasting with an NT preference for intellectually demanding discussions.
+	\end{enumerate}
 	
 
+	
+	%Analyzing from the perspective of MBTI functional groups, clearer behavioral and cognitive preferences emerge.
+	
+	%对四个维度的称呼不统一，需调查专业写法
+	%\begin{itemize}
+	%\item NF types(Diplomats) consistently gravitate toward emotionally and symbolically rich discussions (Topics 1, 2), emphasizing their values-driven communication style and expressive tendencies. 
+	%\item SP(Explorers) types distinctly favor immediate experiential and sensory-focused topics (Topics 7, 14, 15), indicative of their present-oriented, sensory-driven inclinations. 
+	%\item NT(Analysts) types predominantly engage in abstract reasoning, strategic analyses, and fandom discussions that encourage complex intellectual engagement (Topics 2, 5, 17).
+	%\item SJ(Sentinels) types display balanced interests, engaging prominently with mainstream cultural phenomena and structured, community-centric discussions (Topics 1, 10, 17), reflecting their preference for structured interaction, practical feasibility, and communal harmony.
+	%\end{itemize}
+	
+ 	\subsubsection{MBTI type clustering} 
+	Using LDA modeling, we have identified the topic preference different of MBTI personality types. To which extent does the estimated or stereotyped topic preference of the official MBTI groups align with their realistic behaviors? We cluster MBTI types to find out.
+	
+	Reducing high-dimensional topic distributions into a three-dimensional principal component space is necessary for K-means clustering to be preformed. So, PCA dimensionality reduction is preformed before we preform K-means clustering
+	\begin{python}
+def create_mbti_clustering_analysis_3d(n_clusters,topic_dist_df=topic_dist_df):
+    
+    # Standardize data
+    scaler=StandardScaler()
+    scaled_data=scaler.fit_transform(topic_dist_df)
+    
+    # 3D PCA dimensionality reduction
+    pca=PCA(n_components=3)
+    pca_3d_data=pca.fit_transform(scaled_data)
+    
+    # K-means clustering (on 3D data)
+    kmeans=KMeans(n_clusters=n_clusters, random_state=42)
+    clusters=kmeans.fit_predict(pca_3d_data)  # Note: clustering on 3D data
+	\end{python}
+
+	After clustering, we print PCA variance to see if PCA dimensionality reduction is effective.
+	\begin{python}
+# Print variance explained
+print(f"3D PCA variance explained:")
+print(f"PC1: {pca.explained_variance_ratio_[0]:.3f}")
+print(f"PC2: {pca.explained_variance_ratio_[1]:.3f}")  
+print(f"PC3: {pca.explained_variance_ratio_[2]:.3f}")
+print(f"Total: {pca.explained_variance_ratio_.sum():.3f}")
+	\end{python}
+	
+	The results are:
+	
+	PC1: 0.328
+	
+	PC2: 0.265
+	
+	PC3: 0.117
+	
+	Total: 0.709
+	
+	With a total of 70.9\% of information successfully reserved, our dimensionality reduction is successful.
+	
+	To interpret our clustering results, it is necessary for us to find out what PC1, PC2, PC3 represents respectively. So we print out the main contributing features of the three dimensions respectively and plot out PCA feature weights.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{Q2PCA1} 
+		\caption{\centering Printed Main contributing features}		
+	\end{figure}	
+	\begin{figure}[H]
+			\centering
+			\includegraphics[width=1\textwidth]{Q2PCA2} 		
+	\end{figure}
+	
+	By analyzing the printed features and plotted results, we approximately conclude the meaning of each axis:
+	\begin{enumerate}
+	\item PCA1: Leisure \& Fandom vs. Everyday-life.
+	\item PCA2: Politics–Rationality vs. Entertainment–Support.
+	\item PCA3: Fragmented expressions vs. centralized fandom behavior
+	\end{enumerate}
+	
 	
 	
 	
@@ -946,7 +1107,7 @@ infp.data.loc[0,"posts"]
 	From the output, we can see that there is no URLs, emojis, and tags in our data, which means that we have successfully cleaned and read from the cleaned dataset. Our data is ready for analysis.
 	\begin{figure}[H]
 		\centering
-		\includegraphics{Q2VADER1} 
+		\includegraphics[width=0.3\textwidth]{Q2VADER1} 
 		\caption{Cleaned Data printed out}		
 	\end{figure}
 	
@@ -1105,11 +1266,18 @@ plt.show()
 	The histograms allow the observation of surface-level patterns in linguistic styles.
 	\begin{enumerate}
 	\item Sentence Quantity: The top three MBTI types with the highest average sentence counts are ESTJ (150.1), ENTP (147.2), and ESFP (147.1). In contrast, the bottom three are INFP (135.3), INFJ (136.1), and ISFJ (139.9). This may indicate a correlation between the Extroversion/Introversion type and the extent of verbal expression. However, the overall variation in sentence quantity is relatively minor, suggesting limited explanatory significance.
-	\item Word Count:
-	\item Upper-Case Ratio:
-	\item Reading Ease:
+	\item Word Count: ESTJ leads with an average of 1,861.8 words per post, followed by INTJ (1,768.9) and ENTJ (1,713.5). On the other end, ISTP (1,439.3), ISFP (1,468.9) and ESFP (1,500.5) write the fewest words. Overall, Thinking-Judging types (TJs) consistently post at greater length than Perceiving-Feeling types (PFs)
+	\item Upper-Case Ratio:  Posts by ESFP (15.7\% uppercase), ISFP (14.7\%), and ESTP (14.4\%) contain the highest proportion of capital letters, whereas ESTJ (10.0\%), INFJ (10.9\%), and INTJ (11.2\%) post the least. Feeling-Perceiving personalities prefer to use uppercase—perhaps as a tool for emphasis or emotional expression—while Thinking-Judging profiles favor a more uniform casing. 
+	\item Reading Ease: On the Flesch scale, INFJ (59.5), ISFJ (58.5), and ESFJ (58.3) write the most readable posts, whereas ENTP (48.5), INTP (50.3), and ISTP (50.9) produce denser, more complex text. Judging-Feeling types tends for simpler, clearer phrasing, while Perceiving-Thinking types trend toward more intricate language.
 	\end{enumerate}
 	
+	Three characteristic can also be observed from the standpoint of MBTI types.
+	\begin{enumerate}
+	\item ESTJ exhibits the greatest information throughput—leading all types in both mean sentence count and mean word count—whereas ENTP, although nearly as verbose in sentence frequency, records the lowest readability and most negative sentiment, underscoring that sheer output does not translate into a warmer tone.
+	\item ESFP and ISFP personalities stand out for their high upper-case ratios, corresponding to the commonly held view of ‘FP’ types as spontaneous and emotionally guided.
+	\item INFJ produces the most readable texts. Meanwhile, they are also among the top three most positive in emotional expression(analyzed in the next section). ENTP produces the least readable and positive texts.
+
+	\end{enumerate}
 	 
 	
 	
@@ -1117,11 +1285,160 @@ plt.show()
 	\subsubsection{Sentiment Analysis}
 	Sentiment analysis, or opinion mining, is an active area of study in the field of natural language processing that analyzes people's opinions, sentiments, evaluations, attitudes, and emotions via the computational treatment of subjectivity in text. There are various approaches to sentimental analysis. In this assignment, we choose VADER(Valence Aware Dictionary for sEntiment Reasoning) as our tool to analyze the difference of different MBTI personalities in emotional expression due to its superiority in social media context(\cite{VADER}).
 	
-	VADER uses a pre-constructed system of "lexicon + weighted rules" to score each word in the input text and generate an overall sentiment score. For every given text, VADER first separates the text into words. Then, it rates the words from -4 to 4(4 as the most positive, and -4 as the most negative) according to its 7,500-entity valence lexicon. To increase the rating accuracy and distinguish between strength of emotions, VADER corrects the scores with a set of rules, which includes increasing or decreasing the score when identifying capitalization, negative and contrastive words. The details rating process is represented in the flow chart below.
+	%VADER uses a pre-constructed system of "lexicon + weighted rules" to score each word in the input text and generate an overall sentiment score. For every given text, VADER first separates the text into words. Then, it rates the words from -4 to 4(4 as the most positive, and -4 as the most negative) according to its 7,500-entity valence lexicon. To increase the rating accuracy and distinguish between strength of emotions, VADER corrects the scores with a set of rules, which includes increasing or decreasing the score when identifying capitalization, negative and contrastive words. The details rating process is represented in the flow chart below.
 	%插入图片
 	
+	We do the following steps to acquire VADER scoring:
 
-	\subsubsection{Exploratory Data Analysis (EDA)}
+	 \begin{python}
+analyzer = SentimentIntensityAnalyzer()
+overall_vader_score = {'neg': 0.0, 'neu': 0.0, 'pos': 0.0, 'compound': 0.0}
+	\end{python}
+	\begin{itemize}
+	\item Instantiate NLTK’s SentimentIntensityAnalyzer to compute sentiment scores.
+	\item Initialize overall\_vader\_score as an aggregate dictionary with the four sentiment components (neg, neu, pos, compound), which will be used to assess the text’s overall emotional state.
+
+	\end{itemize}
+
+	\begin{python}
+def addup_score_dict(new_dict, base_dict):
+    for key in base_dict.keys():
+        base_dict[key] += new_dict[key]
+	\end{python}
+	This function adds the sentiment scores of a sentence (or post) to the target dictionary. It iterates over the keys and sums the corresponding values, allowing either local or global sentiment accumulation.
+
+	\begin{python}
+def process_vader_score(post):
+    post_vader_score = {'neg': 0.0, 'neu': 0.0, 'pos': 0.0, 'compound': 0.0}
+    for sentence in post:
+        addup_score_dict(analyzer.polarity_scores(sentence), base_dict=post_vader_score)
+    ave_score_dict(base_dict=post_vader_score, n=len(post))
+    addup_score_dict(new_dict=post_vader_score, base_dict=overall_vader_score)
+    return post_vader_score
+	\end{python}
+	This nested function analyzes the sentiment of a single post (a list of sentences) through the following steps:
+	% 或许还是画一个图？
+	\begin{enumerate}
+	\item Initialize a score container for the post.
+	\item Traverse each sentence and obtain its sentiment scores with polarity\_scores().
+	\item Accumulate the sentence scores and divide by the number of sentences to compute the post’s average sentiment.
+	\item Add this post’s average score to the overall accumulator overall\_vader\_score.
+	\item Return the post’s sentiment score so it can be stored back in the dataset.
+	\end{enumerate}
+	\begin{python}
+self.data["vader_score"] = self.data["posts"].apply(process_vader_score)
+	\end{python}
+	This line applies process\_vader\_score to every post in self.data. The returned score dictionaries (neg, neu, pos, compound) are stored in a new column named vader\_score.
+	\begin{python}
+ave_score_dict(overall_vader_score, len(self.data["posts"]))
+self.basic_identities["overall_vader_score"] = overall_vader_score
+	\end{python}
+	After accumulating all post-level scores into overall\_vader\_score, divide by the total number of posts to obtain the average sentiment. Finally, record this overall score in the basic\_identities dictionary under the key "overall\_vader\_score" as the global emotional characteristic of the personality type.
+	
+	Having acquired the VADER score, we collect the average sentiment into a chart that is ordered by descending compound score.
+	\begin{python}
+all_vader_scores={T:cleaned_data[T].basic_identities["overall_vader_score"] for T in MBTI_types}
+all_vader_scores=pd.DataFrame(all_vader_scores).T
+all_vader_scores=all_vader_scores.sort_values(by="compound",ascending=False)
+all_vader_scores
+	\end{python}
+	\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\textwidth]{Q2VADERSCORE} 
+			\caption{\centering Negative, Neutral, Positive and Compound VADER Score arranged in descending compound order}		
+	\end{figure}
+	The characteristics of compound VADER score is described.
+	\begin{python}
+all_vader_scores["compound"].describe()
+	\end{python}
+	\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\textwidth]{Q2CV} 
+			\caption{\centering Description of Compound VADER Scores}		
+	\end{figure}
+	
+	From the description, we find that the standard deviation is approximately 0.0243, showing a small overall fluctuation. The range between the most and least positive types spans about 3.3σ, indicating a significant but not extreme variation. Additionally, the standard deviation accounts for only about 20\% of the mean, implying a compact and smooth distribution.
+	
+	The fact that mean is slightly greater than the median suggests a longer tail on the higher end of the scale, which indicates that the distribution exhibits a slight right skew, towards a positive emotional expression. This is supported by a having positive mean value(0.113).
+	
+	We further visualized the compound results of different MBTI by descending order to find the relationship of MBTI personalities and their sentimental expression.
+	
+	\begin{python}
+x=all_vader_scores.index
+y=all_vader_scores["compound"]
+plt.figure(figsize=(10, 6))
+plt.bar(x,y)
+plt.xlabel("MBTI Types")
+plt.ylabel("VADER Compound Score")
+plt.title("VADER Compound Score for All MBTI Types",fontsize=14, fontweight='bold')
+plt.tight_layout()
+plt.savefig("final_output/vader.png")
+plt.show()
+	\end{python}
+	\begin{figure}[H]
+			\centering
+			\includegraphics[width=1\textwidth]{Q2VADERa1} 
+			\caption{\centering }		
+	\end{figure}
+	
+	We find that ISFJ, INFJ, ENFJ has the highest compound score, while ISTP, ENTP has the lowest, suggesting personalities with F and J tend to be more positive in emotional expression.
+	
+	To verify this point, we first decomposed every personality label into its four constituent letters and collected all VADER-compound scores belonging to the same pole of a dichotomy.  If $D\in\{\text{I/E},\text{S/N},\text{T/F},\text{J/P}\}$ and $L$ denotes one pole of $D$ (e.g., $L=\text{F}$ within $D=\text{T/F}$), the group mean is obtained by
+	
+	$$
+	\bar{x}_{L}=\frac{1}{n_{L}}\sum_{k\in L}x_{k},
+	$$
+	
+	where $x_{k}$ is the compound score of the $k$-th MBTI type and $n_{L}$ is the number of types that contain the letter $L$.  Letting
+	
+	$$
+	\mu=\frac{1}{16}\sum_{i=1}^{16}x_{i}
+	$$
+	
+	denote the grand mean across all sixteen personalities, we express the relative contribution of letter $L$ as
+	
+	$$
+	\Delta_{L}= \frac{\bar{x}_{L}-\mu}{\mu}\times100\%.
+	$$
+	
+	Applying these definitions to our data we obtain $\bar{x}_{\text{F}}=0.126987$, $\bar{x}_{\text{T}}=0.099832$, $\bar{x}_{\text{J}}=0.129241$, and $\bar{x}_{\text{P}}=0.097578$, while the grand mean is $\mu=0.113410$.  Consequently, Feeling exceeds Thinking by $\Delta_{\text{F,T}}\approx 23.9\%$ and Judging exceeds Perceiving by $\Delta_{\text{J,P}}\approx 31.6\%$, whereas the contrasts for Extraversion–Introversion and Intuition–Sensing remain below 3 \%.  These magnitudes confirm that the third and fourth MBTI letters (T/F, J/P) play a significantly greater role in shaping positive emotional expression, while first two dimension make relatively small contribution.
+	
+	To find the relation between the four roles—Diplomats ( NF), Sentinels ( SJ), Analysts ( NT) and Explorers ( SP)—we test its relative contribution. Writing $G\in\{\text{NF},\text{SJ},\text{NT},\text{SP}\}$ and letting $n_{G}$ be the number of types in group $G$ $(n_{G}=4)$, the group score is obtained by
+	
+	$$
+	\bar{x}_{G}= \frac{1}{n_{G}}\sum_{k\in G}x_{k},
+	\qquad
+	G\in\{\text{NF},\text{SJ},\text{NT},\text{SP}\},
+	$$
+	
+	with the grand mean $\mu$ defined in equation above.  Substituting the individual compound values yields
+	
+	$$
+	\bar{x}_{\text{NF}} = 0.133,\qquad 
+	\bar{x}_{\text{SJ}} = 0.129,\qquad
+	\bar{x}_{\text{NT}} = 0.098,\qquad
+	\bar{x}_{\text{SP}} = 0.094 .
+	$$
+	
+	To place these figures on the common scale used earlier, we again report the relative deviation
+	
+	$$
+	\Delta_{G}= \frac{\bar{x}_{G}-\mu}{\mu}\times 100\% .
+	$$
+	
+	Hence
+	
+	$$
+	\Delta_{\text{NF}}=+17.3\%,\quad 
+	\Delta_{\text{SJ}}=+13.7\%,\quad
+	\Delta_{\text{NT}}=-13.6\%,\quad
+	\Delta_{\text{SP}}=-17.1\%.
+	$$
+	
+	The ranking $\bar{x}_{\text{NF}}>\bar{x}_{\text{SJ}}>\bar{x}_{\text{NT}}>\bar{x}_{\text{SP}}$ mirrors the earlier letter-level findings: Diplomats, combining the affective “F’’ and the future-oriented “N’’, produce the warmest tone; Sentinels follow closely, driven by the strongly positive “J’’ component; Analysts, dominated by the critical “T’’, adopt a noticeably cooler register; and Explorers, whose “P’’ preference and playful spontaneity encourage criticism and slang, exhibit the lowest positivity. 
+	
+
+
 	
 	
 
@@ -1133,7 +1450,6 @@ def get_sentence_quantity(self):
 	\end{python}
 	
 	
-
 
 % ----------------- References ------------------------------
 	\printbibliography[title={References}]
