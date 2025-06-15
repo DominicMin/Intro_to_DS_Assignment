@@ -484,7 +484,7 @@ plt.show()
 	%e Can just use \cref{label}
 	\begin{figure}[H]
 		\centering
-		\includegraphics{Q1EDA2} 
+		\includegraphics[width=0.9\textwidth]{Q1EDA2} 
 		\caption{Frequency of 16 MBTI Types}	
 		\label{mbtidist}	
 	\end{figure}
@@ -523,7 +523,7 @@ plt.show()
 	pandas.DataFrame.hist and visualized with matplotlib as shown in \cref{mbtihisto}.
 	\begin{figure}[H]
 		\centering
-		\includegraphics{Q1EDA4} 
+		\includegraphics[width=0.9\textwidth]{Q1EDA4} 
 		\caption{Histogram of MBTI Dimension Scores}
 		\label{mbtihisto}		
 	\end{figure}
@@ -560,7 +560,7 @@ print(stats.round(2))
 	
 	\begin{figure}[H]
 		\centering
-		\includegraphics{Q1EDA6} 
+		\includegraphics[width=0.9\textwidth]{Q1EDA6} 
 		\caption{Descriptive Statistics of MBTI Dimension Scores}	
 		\label{descstatmbti}	
 	\end{figure}
@@ -584,7 +584,7 @@ print(stats.round(2))
 	differences between them are the strongest.
 	\begin{figure}[H]
 		\centering
-		\includegraphics{Q1EDA7} 
+		\includegraphics[width=0.9\textwidth]{Q1EDA7} 
 		\caption{MBTI Distribution of 16 Personality Types}		
 	\end{figure}
 	
@@ -604,7 +604,7 @@ plt.show()
 	relationships among MBTI dimension scores, as shown in \cref{personheatmap}.
 	\begin{figure}[H]
 		\centering
-		\includegraphics{Q1EDA9} 
+		\includegraphics[width=0.9\textwidth]{Q1EDA9} 
 		\caption{Correlation Heatmap of MBTI Dimension Scores}	
 		\label{personheatmap}	
 	\end{figure}
@@ -1264,19 +1264,6 @@ Iterates over \texttt{MBTI\_types} (assumed to include all 16 personality types)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 \subsubsection{LDA modeling}
 	The cleaned data are organized by MBTI types, each as a tokenized and
 	preprocessed text collection stored in a structured \texttt{pd.DataFrame}. 
@@ -1718,7 +1705,8 @@ vis
 	
 	As shown in \cref{fig:HTML}, on the left side of the HTML file, the
 	\textbf{Intertopic Distance Map} visualizes the relationships between topics
-	in two dimensions. A possible interpretation is that each bubble represents
+	in two dimensions. In the inter-topic distance map, PC1 and PC2 are the first two principal components obtained after applying multidimensional scaling to the Jensen–Shannon distance matrix of topics.They capture the largest and second-largest portions of variance in those projected coordinates, respectively, and serve purely as orthogonal axes that maximise the spread of topics in two-dimensional space; they carry no direct linguistic or thematic meaning. A possible interpretation is that each bubble represents 
+	%PC1 PC2解释了，但是PC3没有在图中出现，所以先没有解释
 	a distinct topic, with its area indicating the proportion of tokens (words)
 	in the entire corpus attributed to that topic. Larger bubbles correspond to
 	topics that account for a greater share of the corpus. The position and
@@ -1763,7 +1751,7 @@ vis
 	indicating only minor differences in their semantic content. In the whole
 	corpus, the most reoccurring words are mostly related to the entertainment
 	fandom and game fandom.
-	%e 并不完全表示,没什么特点，联系岔开
+	
 	
 	By selecting different topics and adjusting the value of $\lambda$, we can
 	summarize the central theme of each topic, determine whether it is a noise
@@ -1920,17 +1908,16 @@ def create_topic_wordcloud_summary(topic_words,topic_dist_df):
         
         if i >= 9:  # Only show top 10 topics
             break
-
-
 create_topic_wordcloud_summary(topic_words,topic_dist_df)
 	\end{python}
-	%e better change source figure
+
 	 This gives us the following summary:
 	 \begin{figure}[H]
 	 		\centering
-	 		\includegraphics[width=0.5\textwidth]{Q2topsum} 	
+	 		\includegraphics[width=0.9\textwidth]{Q2topsum} 	
 	 \end{figure}
 	 
+	 %!!
 	 With the aid of the summary statistics, we can find distinct MBTI
 	 engagement patterns across different semantic domains:
 	\begin{itemize}
@@ -1938,8 +1925,8 @@ create_topic_wordcloud_summary(topic_words,topic_dist_df)
 	comebacks, and concerts; demonstrates strong engagement among ISFP, ISFJ,
 	and ESFP types, underscoring the intersection of sensory enjoyment and
 	emotional engagement.
-	\item Topic 14 (lightweight, emotionally-driven daily expression): resonates
-	with SP types who prioritize spontaneity and immediate experiential sharing.
+	%\item Topic 14 (lightweight, emotionally-driven daily expression): resonates
+	%with SP types who prioritize spontaneity and immediate experiential sharing.
 	\item Topic 7 (sensory experiences related to food and comfort): emphasizes
 	fast food, coffee, and cream, aligning with ISTP and ESTP preferences for
 	direct sensory satisfaction.
@@ -2052,6 +2039,7 @@ create_dimension_comparison(group_df,"mbti_group_comparison",group_pairs,group_n
 	any absolute topic-preference gap that surpasses the 85th-percentile
 	threshold, which is indicated by the red dashed line in each subplot.
 	
+	%!!
 	From these 6 comparisons we can come up with the following conclusions:
 	\begin{enumerate}
 	\item Analysts show a clear surplus of discussion in the “Gender /
@@ -2091,7 +2079,7 @@ create_dimension_comparison(group_df,"mbti_group_comparison",group_pairs,group_n
 	
 	%Analyzing from the perspective of MBTI functional groups, clearer behavioral and cognitive preferences emerge.
 	
-	%对四个维度的称呼不统一，需调查专业写法
+	%对四个分类的称呼不统一，需调查专业写法
 	%\begin{itemize}
 	%\item NF types(Diplomats) consistently gravitate toward emotionally and symbolically rich discussions (Topics 1, 2), emphasizing their values-driven communication style and expressive tendencies. 
 	%\item SP(Explorers) types distinctly favor immediate experiential and sensory-focused topics (Topics 7, 14, 15), indicative of their present-oriented, sensory-driven inclinations. 
@@ -2163,7 +2151,7 @@ print(f"Total: {pca.explained_variance_ratio_.sum():.3f}")
 			\centering
 			\includegraphics[width=1\textwidth]{Q2PCA2} 		
 	\end{figure}
-	
+	%!!!
 	By analyzing the printed features and plotted results, we approximately
 	conclude the meaning of each axis:
 	\begin{enumerate}
@@ -2214,11 +2202,8 @@ print(f"Total: {pca.explained_variance_ratio_.sum():.3f}")
     ax.set_title('3D MBTI Clustering Analysis Based on Topic Distribution', 
                 fontsize=14, fontweight='bold')
     
-    
-    
     plt.colorbar(scatter)
     plt.show()
-    
     
     return pca_3d_data, clusters
     fig, axes = plt.subplots(1, 3, figsize=(15, 5))
@@ -2248,7 +2233,7 @@ print(f"Total: {pca.explained_variance_ratio_.sum():.3f}")
     plt.tight_layout()
     plt.savefig(f"output/lda_model/lda_{model_id}/visualization/mbti_clustering_projection.png")
     plt.savefig(f"final_output/mbti_clustering_projection.png")
-    plt.show()
+     plt.show()
 	\end{python}
 	
 	\begin{figure}[H]
@@ -2260,12 +2245,12 @@ print(f"Total: {pca.explained_variance_ratio_.sum():.3f}")
 			\includegraphics[width=0.9\textwidth]{Q22D} 	
 	\end{figure}
 	
+	%!!
 	Using the concluded meaning of each axis, we can come up with the following conclusions:
 	\begin{itemize}
-	\item Cluster 1: ISFP, ISTP — leisure-oriented, low political talk,
-	fragmented style
+	\item Cluster 1: ISFP, ISTP — leisure-oriented, low political talk. Owing to their position on the negative side of PC1 and PC2.
 	\item Cluster 2: ENTJ, ESTJ, INTJ, ISTJ — everyday \& rational topics,
-	highly centralised
+	highly centralised. These MBTI types show an obvious inclination towards the positive axis on PC2. 
 	\item Cluster 3: ESFJ, ISFJ — life-focused, cooperative support behaviour
 	\item Cluster 4: ENFP, ENTP, ESFP, ESTP, INFP, INTP — strong entertainment
 	preference, fragmented expression
@@ -2516,6 +2501,7 @@ plt.show()
     \centering
     \adjustbox{max width=1.2\textwidth,center}{\includegraphics{Q2wordplot}}
 \end{figure}
+
 	The histograms allow the observation of surface-level patterns in linguistic styles.
 	\begin{enumerate}
 	\item Sentence Quantity: The top three MBTI types with the highest average
