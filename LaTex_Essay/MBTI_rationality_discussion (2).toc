@@ -1,0 +1,27 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {section}{\numberline {2}Objective}{1}{section.2}%
+\contentsline {section}{\numberline {3}Problem Statements}{2}{section.3}%
+\contentsline {section}{\numberline {4}Data Collection}{2}{section.4}%
+\contentsline {section}{\numberline {5}MBTI in Measurement}{5}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Data Cleaning and Pre-processing}{5}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Handling Missing Values}{5}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Outlier Detection and Correction}{5}{subsubsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.3}Export the cleaned data}{6}{subsubsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.2}Model Building and Evaluation}{7}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Exploratory Data Analysis (EDA)}{11}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}MBTI Type Frequency}{11}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}Distribution of MBTI Dimension Scores}{12}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}Descriptive Statistics of MBTI Dimensions}{13}{subsubsection.5.3.3}%
+\contentsline {subsubsection}{\numberline {5.3.4}Correlation Analysis Between MBTI Dimensions}{14}{subsubsection.5.3.4}%
+\contentsline {section}{\numberline {6}MBTI in Manifestation}{16}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Topic Preferences of MBTI Personalities}{16}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Data Cleaning}{17}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}LDA modeling}{17}{subsubsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.3}Result Visualization and Topic Evaluation}{23}{subsubsection.6.1.3}%
+\contentsline {subsubsection}{\numberline {6.1.4}Topic Distribution}{32}{subsubsection.6.1.4}%
+\contentsline {subsubsection}{\numberline {6.1.5}MBTI type clustering}{40}{subsubsection.6.1.5}%
+\contentsline {subsection}{\numberline {6.2}Expressive Patterns of MBTI Personalities}{46}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Data Cleaning and Pre-processing}{46}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}Linguistic Style Patterns of MBTI Types}{47}{subsubsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.3}Sentiment Analysis}{54}{subsubsection.6.2.3}%
+\contentsline {section}{References}{59}{lstnumber.-32.4}%
