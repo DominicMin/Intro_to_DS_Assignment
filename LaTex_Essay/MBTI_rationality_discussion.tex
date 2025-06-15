@@ -21,8 +21,8 @@
 \usepackage{amsmath}
 \usepackage{adjustbox}
 \usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue,citecolor=black]{hyperref}
-\usepackage[backend=biber,style=apa]{biblatex}
-\addbibresource{references.bib}  % 不要加 .bib 扩展名
+\usepackage{apacite}  % APA style with bibtex
+\usepackage{tocloft}   % For customizing table of contents
 
 
 %------------------------------------------------------------
@@ -93,9 +93,35 @@
 % Ensure normal text stays 12‑pt Times New Roman (set by documentclass)
 
 %------------------------------------------------------------
+% Table of Contents Formatting
+%------------------------------------------------------------
+% Remove hyperlink colors from TOC
+\hypersetup{
+    linkcolor=black,
+    linktoc=all
+}
+
+% Add dotted lines to TOC entries
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsubsecleader}{\cftdotfill{\cftdotsep}}
+
+% Set TOC title font
+\renewcommand{\cfttoctitlefont}{\Large\bfseries}
+
+%------------------------------------------------------------
 % Document begins
 %------------------------------------------------------------
 \begin{document}
+
+	% Table of Contents without page numbers
+	\pagenumbering{gobble}  % Suppress all page numbers
+	\tableofcontents
+	\newpage
+	
+	% Start Arabic numbering from main content
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
 	
 	% ----------------- Main Content ----------------------------
 	
@@ -104,13 +130,34 @@
 	%\addcontentsline{toc}{section}{Sample Document Title}
 	
 	\section{Introduction}
-	With the recent renewal of the MBTI's popularity, posts or analyses about it have become widespread on public platforms. It seems that MBTI has become a way people use at first meetings.
+	With the recent renewal of the MBTI's popularity, posts or analyses about it
+	have become widespread on public platforms. It seems that MBTI has become a
+	way people use at first meetings.
 	
-	The Myers-Briggs Type Indicator (MBTI) is a psychological framework primarily used to describe and measure personality traits by categorizing individuals into four dichotomous dimensions. In essence, it aims to reflect how people perceive the world and make decisions based on their internal experiences(\cite{yang2022research}).
+	The Myers-Briggs Type Indicator (MBTI) is a psychological framework
+	primarily used to describe and measure personality traits by categorizing
+	individuals into four dichotomous dimensions. In essence, it aims to reflect
+	how people perceive the world and make decisions based on their internal
+	experiences\cite{yang2022research}.
 	
-	And the test is conducted through asking a series of questions, and the type of question is kind of like asking about the tendency to do something. Based on the responses, individuals receive a result represented by four letters, each corresponding to one of the four bipolar dimensions. According to \textcite{boyle1995mbti}, these four dichotomous dimensions classify individuals as either extraverted (E) or introverted (I), sensing (S) or intuitive (N), thinking (T) or feeling (F), and judging (J) or perceiving (P). Combinations of the four preferences generate one of 16 personality types (e.g., ESFJ, ENFP, INTP, ISFJ), each associated with distinct behavioral tendencies, reflecting differences in attitudes, orientation, and decision-making styles. Also, on the official website, it will provide the future career options for you, like INFP, which may be more suitable for being an author. The percentage of each standard will also show in the final result.
+	And the test is conducted through asking a series of questions, and the type
+	of question is kind of like asking about the tendency to do something. Based
+	on the responses, individuals receive a result represented by four letters,
+	each corresponding to one of the four bipolar dimensions. According to
+	\citeA{boyle1995mbti}, these four dichotomous dimensions classify
+	individuals as either extraverted (E) or introverted (I), sensing (S) or
+	intuitive (N), thinking (T) or feeling (F), and judging (J) or perceiving
+	(P). Combinations of the four preferences generate one of 16 personality
+	types (e.g., ESFJ, ENFP, INTP, ISFJ), each associated with distinct
+	behavioral tendencies, reflecting differences in attitudes, orientation, and
+	decision-making styles. Also, on the official website, it will provide the
+	future career options for you, like INFP, which may be more suitable for
+	being an author. The percentage of each standard will also show in the final
+	result.
 	
-	The MBTI provides a widely recognized and accessible way to understand personality, making it a useful foundation for further behavioral and data-driven analysis.
+	The MBTI provides a widely recognized and accessible way to understand
+	personality, making it a useful foundation for further behavioral and
+	data-driven analysis.
 	
 	\section{Objective}
 	\begin{enumerate} 
@@ -232,7 +279,7 @@
 		\includegraphics[width=0.9\textwidth]{Q1P10}
 		
 	\end{figure}
-	Finally, with χ² = 1342.93 and df = 11,we can compute the right - tailed probability corresponding to the chi - square statistic under 10 degrees of freedom, which is 0(shown in figure 3.6). Because the p-value falls far below the conventional α =0.05 threshold, the null hypothesis is decisively rejected: the observed joint distribution of MBTI preferences deviates dramatically from what would be expected if the four indices varied independently. In practical terms, substantial associations exist among the E–I, S–N, T–F and J–P scales, corroborating earlier psychometric critiques that the MBTI dimensions are not orthogonal factors but overlap to a non-trivial extent. Actually, some researchers had also proven that the four dimensions of MBTI are not independent. \textcite{fleenor1997relationship} investigated the intercorrelations among MBTI continuous scores and found that while most dimension pairs demonstrated relatively low correlations, the correlation between the Sensing–Intuition (SN) and Judging–Perceiving (JP) scales was notably higher. Specifically, the study reported a correlation coefficient of r = 0.41 between SN and JP, indicating a moderate positive relationship. This finding has been replicated in other research and suggests that individuals who prefer intuition are more likely to also prefer perceiving. As such, the assumption of strict statistical independence between MBTI preference axes, particularly between SN and JP, may not hold, which is in line with the findings of our study.
+	Finally, with χ² = 1342.93 and df = 11,we can compute the right - tailed probability corresponding to the chi - square statistic under 10 degrees of freedom, which is 0(shown in figure 3.6). Because the p-value falls far below the conventional α =0.05 threshold, the null hypothesis is decisively rejected: the observed joint distribution of MBTI preferences deviates dramatically from what would be expected if the four indices varied independently. In practical terms, substantial associations exist among the E–I, S–N, T–F and J–P scales, corroborating earlier psychometric critiques that the MBTI dimensions are not orthogonal factors but overlap to a non-trivial extent. Actually, some researchers had also proven that the four dimensions of MBTI are not independent. \citeA{fleenor1997relationship} investigated the intercorrelations among MBTI continuous scores and found that while most dimension pairs demonstrated relatively low correlations, the correlation between the Sensing–Intuition (SN) and Judging–Perceiving (JP) scales was notably higher. Specifically, the study reported a correlation coefficient of r = 0.41 between SN and JP, indicating a moderate positive relationship. This finding has been replicated in other research and suggests that individuals who prefer intuition are more likely to also prefer perceiving. As such, the assumption of strict statistical independence between MBTI preference axes, particularly between SN and JP, may not hold, which is in line with the findings of our study.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{Q1P11}
@@ -1377,7 +1424,7 @@ plt.show()
 	
 	
 	\subsubsection{Sentiment Analysis}
-	Sentiment analysis, or opinion mining, is an active area of study in the field of natural language processing that analyzes people's opinions, sentiments, evaluations, attitudes, and emotions via the computational treatment of subjectivity in text. There are various approaches to sentimental analysis. In this assignment, we choose VADER(Valence Aware Dictionary for sEntiment Reasoning) as our tool to analyze the difference of different MBTI personalities in emotional expression due to its superiority in social media context(\cite{VADER}).
+	Sentiment analysis, or opinion mining, is an active area of study in the field of natural language processing that analyzes people's opinions, sentiments, evaluations, attitudes, and emotions via the computational treatment of subjectivity in text. There are various approaches to sentimental analysis. In this assignment, we choose VADER(Valence Aware Dictionary for sEntiment Reasoning) as our tool to analyze the difference of different MBTI personalities in emotional expression due to its superiority in social media context\cite{VADER}.
 	
 	%VADER uses a pre-constructed system of "lexicon + weighted rules" to score each word in the input text and generate an overall sentiment score. For every given text, VADER first separates the text into words. Then, it rates the words from -4 to 4(4 as the most positive, and -4 as the most negative) according to its 7,500-entity valence lexicon. To increase the rating accuracy and distinguish between strength of emotions, VADER corrects the scores with a set of rules, which includes increasing or decreasing the score when identifying capitalization, negative and contrastive words. The details rating process is represented in the flow chart below.
 	%插入图片
@@ -1546,6 +1593,7 @@ def get_sentence_quantity(self):
 	
 
 % ----------------- References ------------------------------
-	\printbibliography[title={References}]
+	\bibliographystyle{apacite}
+	\bibliography{references}
 
 \end{document}

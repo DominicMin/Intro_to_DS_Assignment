@@ -1,19 +1,56 @@
-[0] Config.pm:308> INFO - This is Biber 2.20
-[1] Config.pm:311> INFO - Logfile is 'MBTI_rationality_discussion.blg'
-[241] biber-MSWIN64:340> INFO - === 
-[339] Biber.pm:420> INFO - Reading 'MBTI_rationality_discussion.bcf'
-[614] Biber.pm:994> INFO - Found 5 citekeys in bib section 0
-[658] Biber.pm:4463> INFO - Processing section 0
-[690] Biber.pm:4654> INFO - Looking for bibtex file 'references.bib' for section 0
-[836] bibtex.pm:1713> INFO - LaTeX decoding ...
-[855] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
-[982] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[982] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[982] Biber.pm:4283> INFO - Sorting list 'apa/apasortcite//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
-[982] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
-[1013] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1014] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1014] Biber.pm:4283> INFO - Sorting list 'apa/global//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
-[1014] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
-[1023] bbl.pm:676> INFO - Writing 'MBTI_rationality_discussion.bbl' with encoding 'UTF-8'
-[1034] bbl.pm:779> INFO - Output to MBTI_rationality_discussion.bbl
+This is BibTeX, Version 0.99d (TeX Live 2024)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: MBTI_rationality_discussion.aux
+The style file: apacite.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: references.bib
+apacite.bst [2013/07/21 v6.03 APA bibliography style]
+You've used 5 entries,
+            6951 wiz_defined-function locations,
+            1305 strings with 11656 characters,
+and the built_in function-call counts, 8834 in all, are:
+= -- 1110
+> -- 65
+< -- 397
++ -- 390
+- -- 10
+* -- 544
+:= -- 1620
+add.period$ -- 22
+call.type$ -- 5
+change.case$ -- 90
+chr.to.int$ -- 0
+cite$ -- 10
+duplicate$ -- 198
+empty$ -- 363
+format.name$ -- 88
+if$ -- 1702
+int.to.chr$ -- 0
+int.to.str$ -- 15
+missing$ -- 0
+newline$ -- 121
+num.names$ -- 40
+pop$ -- 150
+preamble$ -- 1
+purify$ -- 24
+quote$ -- 0
+skip$ -- 643
+stack$ -- 0
+substring$ -- 435
+swap$ -- 131
+text.length$ -- 21
+text.prefix$ -- 0
+top$ -- 1
+type$ -- 464
+warning$ -- 0
+while$ -- 37
+width$ -- 0
+write$ -- 137
