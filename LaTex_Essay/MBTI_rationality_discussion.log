@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.5.31)  14 JUN 2025 23:11
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.5.31)  15 JUN 2025 12:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1353,8 +1353,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [35]
-File: Q2VADER1.png Graphic file (type bmp)
-<Q2VADER1.png>
+File: Q2cluster1.png Graphic file (type bmp)
+<Q2cluster1.png>
 
 
 
@@ -1365,6 +1365,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [36]
+File: Q23D.png Graphic file (type bmp)
+<Q23D.png>
+File: Q22D.png Graphic file (type bmp)
+<Q22D.png>
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1374,6 +1379,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [37]
+File: Q2VADER1.png Graphic file (type bmp)
+<Q2VADER1.png>
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1392,6 +1400,24 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [39]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[40]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[41]
 File: Q2wordchart.png Graphic file (type bmp)
 <Q2wordchart.png>
 
@@ -1403,11 +1429,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[40]
+[42]
 File: Q2wordplot.png Graphic file (type bmp)
 <Q2wordplot.png>
 
-Overfull \hbox (6.78177pt too wide) in paragraph at lines 1270--1271
+Overfull \hbox (6.78177pt too wide) in paragraph at lines 1364--1365
 \TU/TimesNewRoman(0)/m/n/12 and INTJ (11.2%) post the least. Feeling-Perceiving
  personalities prefer to use uppercase—
  []
@@ -1421,25 +1447,25 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[41]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[42]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
 [43]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[44]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[45]
 File: Q2VADERSCORE.png Graphic file (type bmp)
 <Q2VADERSCORE.png>
 File: Q2CV.png Graphic file (type bmp)
@@ -1453,40 +1479,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[44]
+[46]
 File: Q2VADERa1.png Graphic file (type bmp)
 <Q2VADERa1.png>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[45]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[46]
-! Misplaced alignment tab character &.
-<argument> Humanities &
-                        Social Sciences papers
-l.1455 ^^I\printbibliography[title={References}]
-                                                
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
 
 
 
@@ -1505,21 +1500,46 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[48] (./MBTI_rationality_discussion.aux)
+[48]
+! Misplaced alignment tab character &.
+<argument> Humanities &
+                        Social Sciences papers
+l.1549 ^^I\printbibliography[title={References}]
+                                                
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[49]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[50] (./MBTI_rationality_discussion.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
+Package rerunfilecheck Info: File `MBTI_rationality_discussion.out' has not cha
+nged.
+(rerunfilecheck)             Checksum: BEFCDC8650062E490302C2EFF222F966;5150.
 
-
-Package rerunfilecheck Warning: File `MBTI_rationality_discussion.out' has chan
-ged.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `MBTI_rationality_discussion.out':
-(rerunfilecheck)             Before: F3077896433F75E8E4E6FF216A2EBC93;5317
-(rerunfilecheck)             After:  BEFCDC8650062E490302C2EFF222F966;5150.
 
 Package biblatex Warning: Please rerun LaTeX.
 (biblatex)                Page breaks have changed.
@@ -1530,12 +1550,12 @@ Package logreq Info: Writing requests to 'MBTI_rationality_discussion.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 24902 strings out of 475796
- 475296 string characters out of 5774033
- 1849476 words of memory out of 5000000
- 47564 multiletter control sequences out of 15000+600000
+ 24970 strings out of 475796
+ 476321 string characters out of 5774033
+ 1849309 words of memory out of 5000000
+ 47632 multiletter control sequences out of 15000+600000
  562775 words of font info for 70 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  79i,12n,101p,1628b,5250s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on MBTI_rationality_discussion.pdf (48 pages).
+Output written on MBTI_rationality_discussion.pdf (50 pages).
